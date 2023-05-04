@@ -13,6 +13,9 @@
 <body>
 
     <header class="main-header">
+
+        <img src="./assets/images/moonlite-logo-cropped.png">
+
         <div class="header-div">
             <a>Home</a>
             <a>Now Showing</a>
@@ -22,11 +25,12 @@
         </div>
     </header>
 
-    <main>
+    <main class="main">
 
         <div class="home-bg-image">
 
             <div class="splash-text">
+                <div class="splash-animation"></div>
                 <h2>Higgins Moonlite Drive-In</h2>
                 <h4>Entertaining Cannon County Since 2005</h4>
                 <div class="bg-contact-bar">
@@ -43,9 +47,50 @@
 
         </div>
 
+        <div class="landing-now-showing">
+
+            <h1>Now Showing</h1>
+
+            <div class="slide-container">
+
+            <div class="slide-div">
+                <div id="slide1" class="movie-slide" style="background-image: url(./assets/images/iron-man-2.jpg);">
+                    <div class="inner-slide">
+                        <h2>Screen 1</h2>
+                    </div>
+                </div>
+    
+                <div id="slide2"  class="movie-slide" style="background-image: url(./assets/images/george-foreman.jpg);">
+                    <div class="inner-slide">
+                        <h2>Screen 1</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-div">
+                <div id="slide3"  class="movie-slide" style="background-image: url(./assets/images/iron-man-2.jpg);">
+                    <div class="inner-slide">
+                        <h2>Screen 2</h2>
+                    </div>
+                </div>
+
+                <div id="slide4"  class="movie-slide" style="background-image: url(./assets/images/george-foreman.jpg);">
+                    <div class="inner-slide">
+                        <h2>Screen 2</h2>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+
     </main>
 
     <footer></footer>
     
 </body>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/index.js"></script>
 </html>

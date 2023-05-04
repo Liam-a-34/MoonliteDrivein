@@ -11,6 +11,14 @@ header{
     background-color: white;
 }
 
+header img{
+    position: absolute;
+    left: 100px;
+    top: 3px;
+    width: 146px;
+    height: 75px;
+}
+
 .header-div{
     width: 800px;
     margin: auto;
@@ -33,21 +41,21 @@ header{
 
 main{
     z-index: 0;
+    overflow: hidden;
 }
 
 .home-bg-image{
     width: 100%;
-    height: 600px;
-    z-index: -10;
-    background-image: url("../images/moonlite-bg\ \(1\).png");
+    height: 80vh;
+    background-image: url("../images/moonlite-bg-enhanced.jpeg");
     background-size: cover;
     background-position: -10%;
-    position: relative;
+    position: ab;
 }
 
 .splash-text{
     width: 1200px;
-    height: 60%;
+    height: 400px;
     background-color: rgba(0, 0, 0, 0.63);
     position: absolute;
     left: 50%;
@@ -61,6 +69,26 @@ main{
     justify-content: center;
     align-items: center;
     padding-bottom: 25px;
+    z-index: 50;
+}
+
+.splash-animation{
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    transition: all .5s ease;
+}
+
+.splash-text:hover .splash-animation{
+    visibility: visible;
+    width: 95%;
+    height: 88%;
 }
 
 .splash-text h2{
@@ -108,3 +136,157 @@ main{
 .contact-bar-item a:hover{
     cursor: pointer;
 }
+
+.landing-now-showing{
+    width: 100%;
+}
+
+.landing-now-showing h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 25px;
+    color: rgb(186, 73, 73)
+}
+
+.slide-container{
+    width: 100%;
+    margin: 50px auto;
+    position: relative;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.slide-div{
+    height: 800px;
+    margin: 15px;
+    position: relative;
+    display: flex;
+}
+
+.movie-slide{
+    width: 450px;
+    height: 700px;
+    background-size: cover;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    position: relative;
+}
+
+#slide1{
+    position: relative;
+    left: 25%;
+    transform: scale(.95);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#slide2{
+    z-index: 100;
+    transition: all .3s ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#slide3{
+    z-index: 100;
+    transition: all .3s ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#slide4{
+    position: relative;
+    right: 25%;
+    transform: scale(.95);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.inner-slide{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.inner-slide h2{
+    position: absolute;
+    font-size: 35px;
+    font-family: "Montserrat";
+    padding: 10px 20px 10px 10px;
+    top: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.656);
+}
+
+.slide-container .slide-div:last-child h2{
+    right: 0;
+}
+
+#slide1:hover{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    z-index: 200;
+    transform: scale(1.05);
+    animation: one-screen-move 1.2s;
+}
+
+#slide4:hover{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    z-index: 200;
+    transform: scale(1.05);
+    animation: two-screen-move 1.2s;
+}
+
+#slide2:hover{
+    transform: scale(1.05);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+#slide3:hover{
+    transform: scale(1.05);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+
+
+@keyframes one-screen-move{
+    0%{
+        z-index: 0;
+        transform: scale(0.95);
+    }
+    25%{
+        transform: translateX(-50%) scale(0.95);
+        z-index: 0; 
+    }
+    30%{
+        z-index: 200;
+    }
+    50%{
+        z-index: 200;
+        transform:scale(1.05);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+
+
+
+@keyframes two-screen-move{
+    0%{
+        z-index: 0;
+        transform: scale(0.95);
+    }
+    25%{
+        transform: translateX(50%) scale(0.95);
+        z-index: 0; 
+    }
+    30%{
+        z-index: 200;
+    }
+    50%{
+        z-index: 200;
+        transform:scale(1.05);
+    }
+    100%{
+        transform: scale(1.05);
+    }
+}
+
