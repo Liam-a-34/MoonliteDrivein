@@ -11,10 +11,7 @@ header{
     background-color: white;
 }
 
-header img{
-    position: absolute;
-    left: 100px;
-    top: 3px;
+header img{ 
     width: 146px;
     height: 75px;
 }
@@ -139,6 +136,7 @@ main{
 
 .landing-now-showing{
     width: 100%;
+    margin-top: 25px
 }
 
 .landing-now-showing h1{
