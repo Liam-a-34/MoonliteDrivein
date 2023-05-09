@@ -22,20 +22,20 @@ header img{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    background-color: white;
 }
 
 .header-div a{
     font-size: 20px;
     font-family: "Open Sans", sans-serif;
     position: relative;
-    max-height: 75px;
+    max-height: 75px; 
     line-height: 75px;
     padding: 0 20px;
     text-decoration: none;
     color: black;
     transition: all .4s ease;
 }
-
 
 .header-div a:hover{
     cursor: pointer;
@@ -57,7 +57,9 @@ header img{
 main{
     z-index: 0;
     overflow: hidden;
+    background-color: rgb(248, 248, 248);
 }
+
 
 .home-bg-image{
     width: 100%;
@@ -164,6 +166,17 @@ main{
     position: relative;
     top: 25px;
     color: rgb(186, 73, 73)
+}
+
+.landing-now-showing h1::after{
+    content: "";
+    width: 300px;
+    border-bottom: 3px solid rgb(186, 73, 73);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .slide-container{
@@ -346,12 +359,13 @@ main{
     height: 250px;
     position: relative;
     top: 25px;
+    margin-left: 100px;
 }
 
 .anc-text-div{
     position: relative;
     left: 100px;
-    margin-right: 25px;
+    margin-right: 200px;
 }
 
 .anc-header{
@@ -365,7 +379,6 @@ main{
     font-size: 20px;
     font-family: "Open Sans", sans-serif;
     color: white;
-    max-width: 900px;
 }
 
 .googlemap {
@@ -397,17 +410,6 @@ main{
     color: rgb(0, 153, 84);
     position: relative;
     padding-bottom: 15px
-}
-
-.location-page-h2::before{
-    content: "";
-    width: 100px;
-    border-bottom: 2px solid rgb(0, 153, 84);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }
 
 .location-box{
@@ -462,14 +464,15 @@ main{
 
 footer{
     width: 100%;
-    height: 100px;
+    height: 150px;
 }
 
 .footer-div1{
     width: 100%;
     background-color: rgb(186, 73, 73);
-    height: 60px;
+    height: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -486,6 +489,13 @@ footer{
     top: 5px
 }
 
+.footer-div1 p{
+    text-align: center;
+    margin: 5px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
 .footer-div2{
     display: flex;
     justify-content: center;
@@ -494,11 +504,111 @@ footer{
     width: 100%;
     font-family: "Montserrat", sans-serif;
     color: grey;
-    font-size: 15px;;
+    font-size: 15px;
+    background-color: white;
 }
 
 .footer-div2 h3 img{
     width: 30px;
     position: relative;
     top: 8px
+}
+
+.showing-main{
+    background-color: rgb(246, 246, 246);
+}
+
+.con-main h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 25px;
+    margin-bottom: 35px;
+    color: rgb(186, 73, 73)
+}
+
+.con-nav{
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: "Open Sans";
+    color: rgb(65, 64, 64);
+}
+
+.con-nav a{
+    color: rgb(65, 64, 64);
+}
+
+.pass{
+    text-align: center;
+    margin: 15px 0;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.con-cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.food-div{
+    width: 60%;
+    max-height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    margin: 15px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+.food-div:hover{
+    cursor: pointer;
+}
+
+.food-div img{
+    height: 150px;
+}
+
+.food-div h2{
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(186, 73, 73);
+}
+
+.food-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-list .food-item:last-child{
+    border-bottom: none;
+}
+
+.food-item{
+    width: 80%;
+    height: 40px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid grey
+}
+
+.food-item h3{
+    font-family: "Open Sans";
+}
+
+.food-item p{
+
+    font-family: "Open Sans", sans-serif;
+}
+
+.con-extend{
+    max-height: 1500px;
 }
