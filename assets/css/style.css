@@ -612,3 +612,127 @@ footer{
 .con-extend{
     max-height: 1500px;
 }
+
+.info-main{
+    min-height: 80vh;
+}
+
+.info-cont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.rules{
+    width: 800px;
+    background-color: white;
+    padding: 15px 45px;
+    height: max-content;
+    margin-right: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.rules h2{
+    text-align: center;
+    margin: 25px 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    color: rgb(186, 73, 73);
+}
+
+.rules li{
+    font-family: "Montserrat", sans-serif;
+    line-height: 22px;
+}
+
+.rules p{
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    margin-top: 15px;
+}
+
+.rules h4{
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.info{
+    width: 350px;
+}
+
+.info img{
+    width: 350px;
+}
+
+.info-board{
+    width: 320px;
+    background-color: white;
+    position: relative;
+    bottom: 15px;
+    left: 17px;
+    text-align: center;
+}
+
+.info-board h4{
+    font-size: 25px;
+    font-family: "Montserrat";
+    border-bottom: 2px solid grey;
+    padding: 5px 0;
+}
+
+.info-board h5{
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    border-bottom: 2px solid grey;
+    padding: 5px 0;
+}
+
+.info-board h5:last-child{
+    border-bottom: none;
+}
+
+.extra-info{
+    width: 320px;
+    background-image: linear-gradient(to right top, #33a7ea, #28a6ef, #1ba4f5, #0da3fa, #00a1ff);
+    position: relative;
+    bottom: 15px;
+    left: 17px;
+    text-align: center;
+    padding: 5px 0 20px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.extra-info h2{
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+}
+
+.extra-info h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: 35px;
+}
+
+.extra-info h4{
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.extra-info p{
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    margin: 3px 0;
+}
+
+.extra-info p:nth-child(7),
+.extra-info p:last-child{
+    margin: 10px 0;
+}
