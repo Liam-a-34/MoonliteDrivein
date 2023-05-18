@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Liam-a-34/MoonliteDrivein/issues"
   },
-  "homepage": "https://github.com/Liam-a-34/MoonliteDrivein#readme"
+  "homepage": "https://github.com/Liam-a-34/MoonliteDrivein#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
