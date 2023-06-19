@@ -5,7 +5,7 @@ const mongodb = require("mongodb").MongoClient;
 const app = express();
 const port = 3001;
 
-const connectionStringURI = `mongodb://localhost:27017`;
+const connectionStringURI = `mongodb://127.0.0.1:27017/MoonliteDB/`;
 
 let db;
 
@@ -17,8 +17,6 @@ mongodb.connect(
     app.listen(port, () => {
       console.log(`App listening at http://localhost:${port}`);
     });
-  }
-);
 
 
   app.use(express.json());
@@ -84,3 +82,5 @@ mongodb.connect(
       }
     );
   });
+
+});
