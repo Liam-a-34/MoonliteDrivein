@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/your-database-name', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
