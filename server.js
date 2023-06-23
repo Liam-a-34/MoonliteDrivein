@@ -20,9 +20,7 @@ const Moonlite = mongoose.model("moonliteCollection", moonliteSchema, "moonliteC
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const _dirname = path.dirname("");
-const buildPath = path.join(_dirname, "/public");
-app.use(express.static(buildPath));
+app.use(express.static(__dirname + "/public"));
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB/', {
