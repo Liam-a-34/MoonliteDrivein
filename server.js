@@ -95,7 +95,7 @@ db.once("open", () => {
           announceText: req.params.announceText,
         };
   
-        const filter = { _id: new mongoose.Types.ObjectId("649072368c103d19acc56669") };
+        const filter = { _id: new mongoose.Types.ObjectId("6495f0d65bafa39e36c4ec39") };
         const options = { new: true }; // Return the updated document
   
         console.log(filter)
