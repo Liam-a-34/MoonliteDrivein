@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
-const uri = process.env.MONGODB_URI
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(uri, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/your-database-name', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
