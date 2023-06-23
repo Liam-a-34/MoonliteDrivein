@@ -39,6 +39,7 @@ db.once("open", () => {
       const Moonlite = mongoose.model("moonliteCollection");
 
       const data = await Moonlite.find().exec();
+      console.log(data)
       const jsonData = JSON.stringify(data);
 
       const fs = require("fs");
