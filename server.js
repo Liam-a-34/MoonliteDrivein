@@ -1,8 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
-
-const PORT = process.env.PORT || 3001;
 const app = express();
 
 const moonliteSchema = new mongoose.Schema({
@@ -22,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
