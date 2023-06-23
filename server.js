@@ -16,6 +16,7 @@ const moonliteSchema = new mongoose.Schema({
 // Register the "moonliteCollection" model with Mongoose
 const Moonlite = mongoose.model("moonliteCollection", moonliteSchema, "moonliteCollection");
 
+app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
