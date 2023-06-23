@@ -64,7 +64,7 @@ main{
 .home-bg-image{
     width: 100%;
     height: 80vh;
-    background-image: url("https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687554956/moonlite-bg-enhanced_smfbty.jpg");
+    background-image: url(https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687554956/moonlite-bg-enhanced_smfbty.jpg);
     background-size: cover;
     background-position: -10%;
     position: ab;
