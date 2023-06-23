@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Types;
-
+const uri = process.env.MONGODB_URI
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect("mongodb://127.0.0.1:27017/MoonliteDB", {
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -51,13 +51,13 @@ db.once("open", () => {
         "<!-- REPLACE_WITH_JSON -->",
         `<script>
           var serverData = ${jsonData};
-          document.getElementById("slide1").style.backgroundImage = "${jsonData.movie1}";
-          document.getElementById("slide2").style.backgroundImage = "${jsonData.movie2}";
-          document.getElementById("slide3").style.backgroundImage = "${jsonData.movie3}";
-          document.getElementById("slide4").style.backgroundImage = "${jsonData.movie4}";
-          document.getElementById("announceImg").style.backgroundImage = "${jsonData.announceImg}";
-          document.getElementById("announceHead").innerHTML = "${jsonData.announceHead}";
-          document.getElementById("announceText").innerHTML = "${jsonData.announceText}";
+          document.getElementById("slide1").style.backgroundImage = "${serverData.movie1}";
+          document.getElementById("slide2").style.backgroundImage = "${serverData.movie2}";
+          document.getElementById("slide3").style.backgroundImage = "${serverData.movie3}";
+          document.getElementById("slide4").style.backgroundImage = "${serverData.movie4}";
+          document.getElementById("announceImg").style.backgroundImage = "${serverData.announceImg}";
+          document.getElementById("announceHead").innerHTML = "${serverData.announceHead}";
+          document.getElementById("announceText").innerHTML = "${serverData.announceText}";
         </script>`
       );
 
