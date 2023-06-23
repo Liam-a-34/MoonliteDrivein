@@ -5,12 +5,12 @@ const app = express();
 
 const moonliteSchema = new mongoose.Schema({
   movie1: String,
-  movie2: String,
-  movie3: String,
-  movie4: String,
   announceImg: String,
   announceHead: String,
   announceText: String,
+  movie2: String,
+  movie3: String,
+  movie4: String,
 });
 
 // Register the "moonliteCollection" model with Mongoose
