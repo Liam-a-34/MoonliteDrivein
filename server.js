@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { ObjectId } = mongoose.Types;
+// const { ObjectId } = mongoose.Types;
 const app = express();
 
 const moonliteSchema = new mongoose.Schema({
@@ -48,13 +48,13 @@ db.once("open", () => {
         "<!-- REPLACE_WITH_JSON -->",
         `<script>
           var serverData = ${jsonData};
-          document.getElementById("slide1").style.backgroundImage = "${serverData.movie1}";
-          document.getElementById("slide2").style.backgroundImage = "${serverData.movie2}";
-          document.getElementById("slide3").style.backgroundImage = "${serverData.movie3}";
-          document.getElementById("slide4").style.backgroundImage = "${serverData.movie4}";
-          document.getElementById("announceImg").style.backgroundImage = "${serverData.announceImg}";
-          document.getElementById("announceHead").innerHTML = "${serverData.announceHead}";
-          document.getElementById("announceText").innerHTML = "${serverData.announceText}";
+          document.getElementById("slide1").style.backgroundImage = serverData.movie1;
+          document.getElementById("slide2").style.backgroundImage = serverData.movie2;
+          document.getElementById("slide3").style.backgroundImage = serverData.movie3;
+          document.getElementById("slide4").style.backgroundImage = serverData.movie4;
+          document.getElementById("announceImg").style.backgroundImage = serverData.announceImg;
+          document.getElementById("announceHead").innerHTML = serverData.announceHead;
+          document.getElementById("announceText").innerHTML = serverData.announceText;
         </script>`
       );
 
