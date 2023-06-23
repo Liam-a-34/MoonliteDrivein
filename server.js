@@ -117,7 +117,7 @@ db.once("open", () => {
     }
   );
 
-  app.listen(PORT, () => {
+  app.listen(process.env.PORT || 3000, () => {
     console.log(`API server running on port ${PORT}!`);
   });
 });
