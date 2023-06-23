@@ -112,11 +112,10 @@ db.once("open", () => {
         console.error("Failed to update document:", err);
         res.status(500).send("Internal Server Error");
       }
-    }
-  );
+    });
 
   app.listen(process.env.PORT || 3000, () => {
-    console.log(`API server running on port ${PORT}!`);
+    console.log(`API server running on port ${process.env.PORT || 3000}!`);
   });
 });
 
