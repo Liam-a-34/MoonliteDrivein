@@ -28,8 +28,8 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
     console.log("Connected to MongoDB!");
 
     app.get("/", async (req, res) => {
+      res.sendFile(path.join(__dirname, '/index.html'));
       try {
-        res.sendFile(path.join(__dirname, '/index.html'));
         const data = await Moonlite.find({});
         console.log(data);
         const jsonData = JSON.stringify(data);
@@ -64,23 +64,23 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
       }
     });
 
-    app.get('/assets/pages/admin.html', (req, res) => {
+    app.get('/assets/pages/admin.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
     });
 
-    app.get('/assets/pages/concessions.html', (req, res) => {
+    app.get('/assets/pages/concessions.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/concessions.html'));
     });
 
-    app.get('/assets/pages/info.html', (req, res) => {
+    app.get('/assets/pages/info.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
     });
 
-    app.get('/assets/pages/login.html', (req, res) => {
+    app.get('/assets/pages/login.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/login.html'));
     });
 
-    app.get('/assets/pages/showing.html', (req, res) => {
+    app.get('/assets/pages/showing.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
     });
 
