@@ -40,9 +40,10 @@ db.once("open", () => {
     try {
       const Moonlite = mongoose.model("moonliteCollection");
 
-      const data = await Moonlite.find({}).toArray();
+      const data = await Moonlite.find({});
       console.log(data)
       const jsonData = JSON.stringify(data);
+      console.log(jsonData)
 
       const fs = require("fs");
       const indexHtml = fs.readFileSync("index.html", "utf8");
@@ -51,13 +52,13 @@ db.once("open", () => {
         "<!-- REPLACE_WITH_JSON -->",
         `<script>
           var serverData = ${jsonData};
-          document.getElementById("slide1").style.backgroundImage = "/images/" + ${jsonData.movie1};
-          document.getElementById("slide2").style.backgroundImage = "/images/" + ${jsonData.movie2};
-          document.getElementById("slide3").style.backgroundImage = "/images/" + ${jsonData.movie3};
-          document.getElementById("slide4").style.backgroundImage = "/images/" + ${jsonData.movie4};
-          document.getElementById("announceImg").style.backgroundImage = "/images/" + ${jsonData.announceImg};
-          document.getElementById("announceHead").innerHTML = "/images/" + ${jsonData.announceHead};
-          document.getElementById("announceText").innerHTML = "/images/" + ${jsonData.announceText};
+          document.getElementById("slide1").style.backgroundImage = "/images/" + serverData[0].movie1;
+          document.getElementById("slide2").style.backgroundImage = "/images/" + serverData[0].movie2;
+          document.getElementById("slide3").style.backgroundImage = "/images/" + serverData[0].movie3;
+          document.getElementById("slide4").style.backgroundImage = "/images/" + serverData[0].movie4;
+          document.getElementById("announceImg").style.backgroundImage = "/images/" + serverData[0].announceImg;
+          document.getElementById("announceHead").innerHTML = serverData[0].announceHead;
+          document.getElementById("announceText").innerHTML = serverData[0].announceText;
         </script>`
       );
 
