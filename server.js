@@ -29,17 +29,14 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
     console.log("Connected to MongoDB!");
 
     app.get("/", async (req, res) => {
-
-      res.sendFile(path.join(__dirname, '/index.html'));
-
       try {
         const data = await Moonlite.find({});
         console.log(data);
         const jsonData = JSON.stringify(data);
         console.log(jsonData);
-
+    
         const indexHtml = fs.readFileSync("index.html", "utf8");
-
+    
         const modifiedHtml = indexHtml.replace(
           "<!-- REPLACE_WITH_JSON -->",
           `<script>
@@ -59,14 +56,14 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
             document.getElementById("announceText").innerHTML = serverData[0].announceText;
           </script>`
         );
-
+    
         res.send(modifiedHtml);
       } catch (err) {
         console.error("Failed to retrieve data from MongoDB:", err);
         res.status(500).send("Internal Server Error");
       }
     });
-
+    
     app.get('/assets/pages/admin.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
     });
