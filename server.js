@@ -83,7 +83,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
       res.sendFile(path.join(__dirname, '/assets/pages/login.html'));
     });
 
-    app.get('/assets/pages/showing.html', async (req, res) => {
+    app.get('/showing.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/showing.html'));
     });
 
