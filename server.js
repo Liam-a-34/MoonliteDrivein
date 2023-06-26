@@ -29,6 +29,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
 
     app.get("/", async (req, res) => {
       try {
+        res.sendFile(path.join(__dirname, '/index.html'));
         const data = await Moonlite.find({});
         console.log(data);
         const jsonData = JSON.stringify(data);
@@ -41,11 +42,11 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           `<script>
             var serverData = ${jsonData};
             console.log(serverData);
-            var movieurl1 = "public/assets/images/" + serverData[0].movie1
-            var movieurl2 = "public/assets/images/" + serverData[0].movie2
-            var movieurl3 = "public/assets/images/" + serverData[0].movie3
-            var movieurl4 = "public/assets/images/" + serverData[0].movie4
-            var announceurl = "public/assets/images/" + serverData[0].announceImg
+            var movieurl1 = "/assets/images/" + serverData[0].movie1
+            var movieurl2 = "/assets/images/" + serverData[0].movie2
+            var movieurl3 = "/assets/images/" + serverData[0].movie3
+            var movieurl4 = "/assets/images/" + serverData[0].movie4
+            var announceurl = "/assets/images/" + serverData[0].announceImg
             document.getElementById("slide1").style.backgroundImage = "url(" + movieurl1 + ")";
             document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
             document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
@@ -61,6 +62,26 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
         console.error("Failed to retrieve data from MongoDB:", err);
         res.status(500).send("Internal Server Error");
       }
+    });
+
+    app.get('/assets/pages/admin.html', (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
+    });
+
+    app.get('/assets/pages/concessions.html', (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/pages/concessions.html'));
+    });
+
+    app.get('/assets/pages/info.html', (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
+    });
+
+    app.get('/assets/pages/login.html', (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/pages/login.html'));
+    });
+
+    app.get('/assets/pages/showing.html', (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
     });
 
     app.get("/all-data", async (req, res) => {
