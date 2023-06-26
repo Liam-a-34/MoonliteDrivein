@@ -84,6 +84,10 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
       res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
     });
 
+    app.get('/assets/images/', async (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/images/'));
+    });
+
     app.get("/all-data", async (req, res) => {
       try {
         const result = await Moonlite.find().exec();
