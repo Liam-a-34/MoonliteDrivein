@@ -41,11 +41,16 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           `<script>
             var serverData = ${jsonData};
             console.log(serverData);
-            document.getElementById("slide1").style.backgroundImage = url(serverData[0].movie1);
-            document.getElementById("slide2").style.backgroundImage = url(serverData[0].movie2);
-            document.getElementById("slide3").style.backgroundImage = url(serverData[0].movie3);
-            document.getElementById("slide4").style.backgroundImage = url(serverData[0].movie4);
-            document.getElementById("announceImg").style.backgroundImage = url(serverData[0].announceImg);
+            var movieurl1 = serverData[0].movie1
+            var movieurl2 = serverData[0].movie2
+            var movieurl3 = serverData[0].movie3
+            var movieurl4 = serverData[0].movie4
+            var announceurl = serverData[0].announceImg
+            document.getElementById("slide1").style.backgroundImage = "url(" + movieurl1 + ")";
+            document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
+            document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
+            document.getElementById("slide4").style.backgroundImage = "url(" + movieurl4 + ")";
+            document.getElementById("announceImg").style.backgroundImage = "url(" + announceurl + ")";
             document.getElementById("announceHead").innerHTML = serverData[0].announceHead;
             document.getElementById("announceText").innerHTML = serverData[0].announceText;
           </script>`
