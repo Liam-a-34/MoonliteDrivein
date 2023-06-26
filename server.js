@@ -22,7 +22,7 @@ app.use(express.json());
 
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB/', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/MoonliteDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -40,7 +40,7 @@ db.once("open", () => {
     try {
       const Moonlite = mongoose.model("moonliteCollection");
 
-      const data = await Moonlite.find().exec();
+      const data = await Moonlite.find({}).toArray();
       console.log(data)
       const jsonData = JSON.stringify(data);
 
@@ -51,13 +51,13 @@ db.once("open", () => {
         "<!-- REPLACE_WITH_JSON -->",
         `<script>
           var serverData = ${jsonData};
-          document.getElementById("slide1").style.backgroundImage = ${jsonData.movie1};
-          document.getElementById("slide2").style.backgroundImage = ${jsonData.movie2};
-          document.getElementById("slide3").style.backgroundImage = ${jsonData.movie3};
-          document.getElementById("slide4").style.backgroundImage = ${jsonData.movie4};
-          document.getElementById("announceImg").style.backgroundImage = ${jsonData.announceImg};
-          document.getElementById("announceHead").innerHTML = ${jsonData.announceHead};
-          document.getElementById("announceText").innerHTML = ${jsonData.announceText};
+          document.getElementById("slide1").style.backgroundImage = "/images/" + ${jsonData.movie1};
+          document.getElementById("slide2").style.backgroundImage = "/images/" + ${jsonData.movie2};
+          document.getElementById("slide3").style.backgroundImage = "/images/" + ${jsonData.movie3};
+          document.getElementById("slide4").style.backgroundImage = "/images/" + ${jsonData.movie4};
+          document.getElementById("announceImg").style.backgroundImage = "/images/" + ${jsonData.announceImg};
+          document.getElementById("announceHead").innerHTML = "/images/" + ${jsonData.announceHead};
+          document.getElementById("announceText").innerHTML = "/images/" + ${jsonData.announceText};
         </script>`
       );
 
