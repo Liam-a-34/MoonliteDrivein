@@ -28,7 +28,6 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
     console.log("Connected to MongoDB!");
 
     app.get("/", async (req, res) => {
-      res.sendFile(path.join(__dirname, '/index.html'));
       try {
         const data = await Moonlite.find({});
         console.log(data);
