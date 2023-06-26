@@ -73,7 +73,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
       }
     });
 
-    app.put(
+    app.get(
       "/homeUpdate/:movie1/:movie2/:movie3/:movie4/:announceImg/:announceHead/:announceText",
       async (req, res) => {
         try {
