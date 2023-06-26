@@ -52,13 +52,14 @@ db.once("open", () => {
         "<!-- REPLACE_WITH_JSON -->",
         `<script>
           var serverData = ${jsonData};
-          document.getElementById("slide1").style.backgroundImage = "/images/" + serverData[0].movie1;
-          document.getElementById("slide2").style.backgroundImage = "/images/" + serverData[0].movie2;
-          document.getElementById("slide3").style.backgroundImage = "/images/" + serverData[0].movie3;
-          document.getElementById("slide4").style.backgroundImage = "/images/" + serverData[0].movie4;
-          document.getElementById("announceImg").style.backgroundImage = "/images/" + serverData[0].announceImg;
-          document.getElementById("announceHead").innerHTML = serverData[0].announceHead;
-          document.getElementById("announceText").innerHTML = serverData[0].announceText;
+          console.log(serverData)
+          document.getElementById("slide1").style.backgroundImage = "/images/${serverData[0].movie1}";
+          document.getElementById("slide2").style.backgroundImage = "/images/${serverData[0].movie2}";
+          document.getElementById("slide3").style.backgroundImage = "/images/${serverData[0].movie3}";
+          document.getElementById("slide4").style.backgroundImage = "/images/${serverData[0].movie4}";
+          document.getElementById("announceImg").style.backgroundImage = "/images/${serverData[0].announceImg}";
+          document.getElementById("announceHead").innerHTML = ${serverData[0].announceHead};
+          document.getElementById("announceText").innerHTML = ${serverData[0].announceText};
         </script>`
       );
 
