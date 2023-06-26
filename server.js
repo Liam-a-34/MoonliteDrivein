@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd.mongodb.net/MoonliteDB?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
