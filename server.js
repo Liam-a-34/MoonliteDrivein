@@ -60,7 +60,7 @@ mongoose.connect(process.env.MONGO_URI, {
             document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
             document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
             document.getElementById("slide4").style.backgroundImage = "url(" + movieurl4 + ")";
-            document.getElementById("announceImg").src = "url(" + announceurl + ")";
+            document.getElementById("announceImg").src = announceurl;
             document.getElementById("announceHead").innerHTML = serverData[0].announceHead;
             document.getElementById("announceText").innerHTML = serverData[0].announceText;
           </script>`
