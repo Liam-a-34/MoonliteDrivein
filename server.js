@@ -120,11 +120,11 @@ mongoose.connect(process.env.MONGO_URI, {
           const file4 = req.params.movie4;
           const file5 = req.params.announceImg;
 
-          const filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
-          const filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
-          const filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
-          const filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
-          const filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
+          var filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
+          var filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
+          var filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
+          var filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
+          var filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
 
           for(let i = 1; i < 6; i++){
 
@@ -147,12 +147,33 @@ mongoose.connect(process.env.MONGO_URI, {
           })
         }
 
+        const url1 = s3.getSignedUrl('getObject', {
+          Bucket: bucketName,
+          Key: filePath1,
+        });
+        const url2 = s3.getSignedUrl('getObject', {
+          Bucket: bucketName,
+          Key: filePath2,
+        });
+        const url3 = s3.getSignedUrl('getObject', {
+          Bucket: bucketName,
+          Key: filePath3,
+        });
+        const url4 = s3.getSignedUrl('getObject', {
+          Bucket: bucketName,
+          Key: filePath4,
+        });
+        const url5 = s3.getSignedUrl('getObject', {
+          Bucket: bucketName,
+          Key: filePath5,
+        });
+
           const updatedData = {
-            movie1: req.params.movie1,
-            movie2: req.params.movie2,
-            movie3: req.params.movie3,
-            movie4: req.params.movie4,
-            announceImg: req.params.announceImg,
+            movie1: url1,
+            movie2: url2,
+            movie3: url3,
+            movie4: url4,
+            announceImg: url5,
             announceHead: req.params.announceHead,
             announceText: req.params.announceText,
           };
