@@ -94,6 +94,10 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/css/style.css'));
     });
 
+    // app.get("/favicon.ico", async (req, res) => {
+    //   res.sendFile(path.join(__dirname, '/favicon.ico'));
+    // })
+
     app.get('/assets/pages/showing.html', async (req, res) => {
 
       try {
