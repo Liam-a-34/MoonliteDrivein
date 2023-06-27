@@ -51,11 +51,11 @@ mongoose.connect(process.env.MONGO_URI, {
           `<script>
             var serverData = ${jsonData};
             console.log(serverData);
-            var movieurl1 = serverData[0].movie1
-            var movieurl2 = serverData[0].movie2
-            var movieurl3 = serverData[0].movie3
-            var movieurl4 = serverData[0].movie4
-            var announceurl = serverData[0].announceImg
+            var movieurl1 = "https://s3.amazonaws.com/moonlitebucket/" + serverData[0].movie1
+            var movieurl2 = "https://s3.amazonaws.com/moonlitebucket/" + serverData[0].movie2
+            var movieurl3 = "https://s3.amazonaws.com/moonlitebucket/" + serverData[0].movie3
+            var movieurl4 = "https://s3.amazonaws.com/moonlitebucket/" + serverData[0].movie4
+            var announceurl = "https://s3.amazonaws.com/moonlitebucket/" + serverData[0].announceImg
             document.getElementById("slide1").style.backgroundImage = "url(" + movieurl1 + ")";
             document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
             document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
@@ -147,33 +147,33 @@ mongoose.connect(process.env.MONGO_URI, {
           })
         }
 
-        const url1 = s3.getSignedUrl('getObject', {
-          Bucket: bucketName,
-          Key: filePath1,
-        });
-        const url2 = s3.getSignedUrl('getObject', {
-          Bucket: bucketName,
-          Key: filePath2,
-        });
-        const url3 = s3.getSignedUrl('getObject', {
-          Bucket: bucketName,
-          Key: filePath3,
-        });
-        const url4 = s3.getSignedUrl('getObject', {
-          Bucket: bucketName,
-          Key: filePath4,
-        });
-        const url5 = s3.getSignedUrl('getObject', {
-          Bucket: bucketName,
-          Key: filePath5,
-        });
+        // const url1 = s3.getSignedUrl('getObject', {
+        //   Bucket: bucketName,
+        //   Key: filePath1,
+        // });
+        // const url2 = s3.getSignedUrl('getObject', {
+        //   Bucket: bucketName,
+        //   Key: filePath2,
+        // });
+        // const url3 = s3.getSignedUrl('getObject', {
+        //   Bucket: bucketName,
+        //   Key: filePath3,
+        // });
+        // const url4 = s3.getSignedUrl('getObject', {
+        //   Bucket: bucketName,
+        //   Key: filePath4,
+        // });
+        // const url5 = s3.getSignedUrl('getObject', {
+        //   Bucket: bucketName,
+        //   Key: filePath5,
+        // });
 
           const updatedData = {
-            movie1: url1,
-            movie2: url2,
-            movie3: url3,
-            movie4: url4,
-            announceImg: url5,
+            movie1: req.params.movie1,
+            movie2: req.params.movie2,
+            movie3: req.params.movie3,
+            movie4: req.params.movie4,
+            announceImg: req.params.announceImg,
             announceHead: req.params.announceHead,
             announceText: req.params.announceText,
           };
