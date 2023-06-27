@@ -91,6 +91,37 @@ mongoose.connect(process.env.MONGO_URI, {
 
     app.get('/assets/pages/showing.html', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
+
+      try {
+        const data = await Moonlite.find({});
+        console.log(data);
+        const jsonData = JSON.stringify(data);
+        console.log(jsonData);
+    
+        const indexHtml = fs.readFileSync("index.html", "utf8");
+    
+        const modifiedHtml = indexHtml.replace(
+          "<!-- REPLACE_WITH_JSON -->",
+          `<script>
+            var serverData = ${jsonData};
+            console.log(serverData);
+            var movieurl1 = "https://moonlitebucket.s3.us-east-2.amazonaws.com/" + serverData[0].movie1
+            var movieurl2 = "https://moonlitebucket.s3.us-east-2.amazonaws.com/" + serverData[0].movie2
+            var movieurl3 = "https://moonlitebucket.s3.us-east-2.amazonaws.com/" + serverData[0].movie3
+            var movieurl4 = "https://moonlitebucket.s3.us-east-2.amazonaws.com/" + serverData[0].movie4
+            document.getElementById("slide1").style.backgroundImage = "url(" + movieurl1 + ")";
+            document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
+            document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
+            document.getElementById("slide4").style.backgroundImage = "url(" + movieurl4 + ")";
+          </script>`
+        );
+    
+        res.send(modifiedHtml);
+      } catch (err) {
+        console.error("Failed to retrieve data from MongoDB:", err);
+        res.status(500).send("Internal Server Error");
+      }
+
     });
 
     app.get("/all-data", async (req, res) => {
