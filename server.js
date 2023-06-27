@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 const app = express();
 const path = require("path");
-const AWS = require("aws-sdk")
+const AWS = require("aws-sdk");
+require("dotenv").config()
 
 AWS.config.update({
   accessKeyId: process.env.AWS_KEY,
@@ -98,9 +99,9 @@ mongoose.connect(process.env.MONGO_URI, {
         const jsonData = JSON.stringify(data);
         console.log(jsonData);
     
-        const showingHtml = fs.readFileSync("./assets/pages/showing.html", "utf8");
+        const currentHtml = fs.readFileSync("./assets/pages/showing.html", "utf8");
     
-        const modifiedHtml = showingHtml.replace(
+        const changedHtml = currentHtml.replace(
           "<!-- REPLACE_WITH_JSON -->",
           `<script>
             var serverData = ${jsonData};
@@ -116,7 +117,7 @@ mongoose.connect(process.env.MONGO_URI, {
           </script>`
         );
     
-        res.send(modifiedHtml);
+        res.send(changedHtml);
       } catch (err) {
         console.error("Failed to retrieve data from MongoDB:", err);
         res.status(500).send("Internal Server Error");
