@@ -42,7 +42,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           `<script>
             var serverData = ${jsonData};
             console.log(serverData);
-            var movieurl1 = "https://powerful-journey-71873-671e8c92a415.herokuapp.com/assets/images/" + serverData[0].movie1
+            var movieurl1 = "https://mycdn.com/" + serverData[0].movie1
             var movieurl2 = "https://powerful-journey-71873-671e8c92a415.herokuapp.com/assets/images/" + serverData[0].movie2
             var movieurl3 = "https://powerful-journey-71873-671e8c92a415.herokuapp.com/assets/images/" + serverData[0].movie3
             var movieurl4 = "https://powerful-journey-71873-671e8c92a415.herokuapp.com/assets/images/" + serverData[0].movie4
