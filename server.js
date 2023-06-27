@@ -6,8 +6,8 @@ const path = require("path");
 const AWS = require("aws-sdk")
 
 AWS.config.update({
-  accessKeyId: 'AKIAQPNAVKZEWCVSDIH6',
-  secretAccessKey: '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'
+  accessKeyId: process.env.AWS_KEY,
+  secretAccessKey: process.env.AWS_SECRET
 });
 
 const s3 = new AWS.S3()
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
-mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd.mongodb.net/MoonliteDB?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -145,6 +145,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
               };
 
           })
+        }
 
           const updatedData = {
             movie1: req.params.movie1,
@@ -173,7 +174,6 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           console.error("Failed to update document:", err);
           res.status(500).send("Internal Server Error");
         }
-      }
   });
 
     app.listen(process.env.PORT || 3000, () => {

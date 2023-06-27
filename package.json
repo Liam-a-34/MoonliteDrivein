@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Liam-a-34/MoonliteDrivein#readme",
   "dependencies": {
     "aws-sdk": "^2.1405.0",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "mongo": "^0.1.0",
