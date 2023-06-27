@@ -90,6 +90,10 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/login.html'));
     });
 
+    app.get('/assets/css/style.css', async (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/css/style.css'));
+    });
+
     app.get('/assets/pages/showing.html', async (req, res) => {
 
       try {
