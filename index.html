@@ -130,27 +130,60 @@
     <script>
         const slide1 = document.getElementById('slide1');
         const slide4 = document.getElementById('slide4');
-      
-        slide1.addEventListener('mouseover', () => {
-          slide1.classList.add('slide1-forward');
-          slide1.classList.remove('slide1-reverse');
-        });
-      
-        slide1.addEventListener('mouseout', () => {
-          slide1.classList.remove('slide1-forward');
-          slide1.classList.add('slide1-reverse');
-        });
-      
-        slide4.addEventListener('mouseover', () => {
-            slide4.classList.add('slide4-forward');
-            slide4.classList.remove('slide4-reverse');
-        });
-      
-        slide4.addEventListener('mouseout', () => {
-            slide4.classList.remove('slide4-forward');
-            slide4.classList.add('slide4-reverse');
-        });
-      </script>
+        let animationInProgress = false;
+
+            slide1.addEventListener('mouseover', () => {
+            if (!animationInProgress) {
+                slide1.classList.add('slide1-forward');
+                slide1.classList.remove('slide1-reverse');
+
+                animationInProgress = true
+
+                setTimeout(function(){
+                    animationInProgress = false
+                }, 200)
+            }
+            });
+
+            slide1.addEventListener('mouseout', () => {
+            if (!animationInProgress) {
+                slide1.classList.remove('slide1-forward');
+                slide1.classList.add('slide1-reverse');
+
+                animationInProgress = true
+
+                setTimeout(function(){
+                    animationInProgress = false
+                }, 200)
+            }
+            });
+
+            slide4.addEventListener('mouseover', () => {
+            if (!animationInProgress) {
+                slide4.classList.add('slide4-forward');
+                slide4.classList.remove('slide4-reverse');
+
+                animationInProgress = true
+
+                setTimeout(function(){
+                    animationInProgress = false
+                }, 200)
+            }
+            });
+
+            slide4.addEventListener('mouseout', () => {
+            if (!animationInProgress) {
+                slide4.classList.remove('slide4-forward');
+                slide4.classList.add('slide4-reverse');
+
+                animationInProgress = true
+
+                setTimeout(function(){
+                    animationInProgress = false
+                }, 200)
+            }
+            });
+    </script>
     
 </body>
 

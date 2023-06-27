@@ -256,26 +256,26 @@ main{
     right: 0;
 }
 
-  .slide1-forward{
+.slide1-forward{
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     z-index: 200;
     transform: scale(1.05);
-    animation: one-screen-move 1.2s;
+    animation: one-screen-move 1s;
   }
 
   .slide1-reverse{
-    animation: one-screen-move-reverse 1.2s;
+    animation: one-screen-move-reverse 1s;
   }
 
   .slide4-forward{
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     z-index: 200;
     transform: scale(1.05);
-    animation: two-screen-move 1.2s;
+    animation: two-screen-move 1s;
   }
 
   .slide4-reverse{
-    animation: two-screen-move-reverse 1.2s;
+    animation: two-screen-move-reverse 1s;
   }
 
   
