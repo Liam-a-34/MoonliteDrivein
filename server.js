@@ -128,8 +128,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
           for(let i = 1; i < 6; i++){
 
-            var file = file[i]
-            var filePath = filePath[i]
+            var file = eval("file" + i)
+            var filePath = eval("filePath" + i)
 
             const params = {
               Bucket: bucketName,
