@@ -2,7 +2,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const fs = require("fs");
 const app = express();
-const path = require("path")
+const path = require("path");
+const AWS = require("aws-sdk")
+
+AWS.config.update({
+  accessKeyId: 'AKIAQPNAVKZEWCVSDIH6',
+  secretAccessKey: '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'
+});
+
+const s3 = new AWS.S3()
+const bucketName = "moonlitebucket"
 
 const moonliteSchema = new mongoose.Schema({
   movie1: String,
@@ -118,6 +127,34 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
 
           console.log(filter);
           const updatedDocument = await Moonlite.findOneAndUpdate(filter, updatedData, options).exec();
+
+          const file1 = req.params.movie1;
+          const file2 = req.params.movie2;
+          const file3 = req.params.movie3;
+          const file4 = req.params.movie4;
+          const file5 = req.params.announceImg;
+
+          const filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
+          const filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
+          const filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
+          const filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
+          const filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
+
+          for(let i = 1; i < 6; i++){
+            const params = {
+              Bucket: bucketName,
+              Key: file[i],
+              Body: filePath[i]
+            }
+
+            s3.upload(params, function(err, data) {
+              if (err) {
+                console.log('Error uploading image:', err);
+              } else {
+                console.log('Image uploaded:', data.Location);
+              };
+            });
+          }
 
           if (!updatedDocument) {
             console.log("Document not found");
