@@ -129,6 +129,26 @@
 </body>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/index.js"></script>
+    <script>
+    const slide1 = document.getElementById('slide1');
+    const slide4 = document.getElementById('slide4');
+
+    slide1.addEventListener('mouseenter', () => {
+        slide1.classList.add('reverse');
+    });
+
+    slide1.addEventListener('mouseleave', () => {
+        slide1.classList.remove('reverse');
+    });
+
+    slide4.addEventListener('mouseenter', () => {
+        slide4.classList.add('reverse');
+    });
+
+    slide4.addEventListener('mouseleave', () => {
+        slide4.classList.remove('reverse');
+    });
+
+    </script>
     <!-- REPLACE_WITH_JSON -->
 </html>
