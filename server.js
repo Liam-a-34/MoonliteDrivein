@@ -51,11 +51,11 @@ mongoose.connect(process.env.MONGO_URI, {
           `<script>
             var serverData = ${jsonData};
             console.log(serverData);
-            var movieurl1 = "https://moonlitebucket.s3.ohio.amazonaws.com/" + serverData[0].movie1
-            var movieurl2 = "https://moonlitebucket.s3.ohio.amazonaws.com/" + serverData[0].movie2
-            var movieurl3 = "https://moonlitebucket.s3.ohio.amazonaws.com/" + serverData[0].movie3
-            var movieurl4 = "https://moonlitebucket.s3.ohio.amazonaws.com/" + serverData[0].movie4
-            var announceurl = "https://moonlitebucket.s3.ohio.amazonaws.com/" + serverData[0].announceImg
+            var movieurl1 = serverData[0].movie1
+            var movieurl2 = serverData[0].movie2
+            var movieurl3 = serverData[0].movie3
+            var movieurl4 = serverData[0].movie4
+            var announceurl = serverData[0].announceImg
             document.getElementById("slide1").style.backgroundImage = "url(" + movieurl1 + ")";
             document.getElementById("slide2").style.backgroundImage = "url(" + movieurl2 + ")";
             document.getElementById("slide3").style.backgroundImage = "url(" + movieurl3 + ")";
