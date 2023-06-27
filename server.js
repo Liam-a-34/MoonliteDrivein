@@ -98,7 +98,7 @@ mongoose.connect(process.env.MONGO_URI, {
         const jsonData = JSON.stringify(data);
         console.log(jsonData);
     
-        const showingHtml = fs.readFileSync("/assets/pages/showing.html", "utf8");
+        const showingHtml = fs.readFileSync("showing.html", "utf8");
     
         const modifiedHtml = showingHtml.replace(
           "<!-- REPLACE_WITH_JSON -->",
