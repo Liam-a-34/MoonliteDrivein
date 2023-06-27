@@ -120,7 +120,7 @@ mongoose.connect(process.env.MONGO_URI, {
         res.send(changedHtml);
       } catch (err) {
         console.error("Failed to retrieve data from MongoDB:", err);
-        res.status(500).send("Internal Server Error");
+        // res.status(500).send("Internal Server Error");
       }
 
     });
