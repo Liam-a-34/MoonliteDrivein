@@ -245,7 +245,7 @@ main{
 .inner-slide h2{
     position: absolute;
     font-size: 35px;
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     padding: 10px 20px 10px 10px;
     top: 25px;
     color: white;
@@ -278,7 +278,6 @@ main{
     animation: two-screen-move-reverse 1s;
   }
 
-  
   #slide2:hover{
       transform: scale(1.05);
       box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
@@ -288,8 +287,6 @@ main{
       transform: scale(1.05);
       box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
-  
-  
   
   @keyframes one-screen-move{
       0%{
@@ -375,6 +372,10 @@ main{
       z-index: 0;
       transform: scale(0.95);
     }
+  }
+
+  .slide-scale{
+    transform: scale(1.05);
   }
 
 .announcements{
