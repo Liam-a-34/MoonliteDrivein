@@ -91,7 +91,6 @@ mongoose.connect(process.env.MONGO_URI, {
     });
 
     app.get('/assets/pages/showing.html', async (req, res) => {
-      res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
 
       try {
         const data = await Moonlite.find({});
@@ -122,6 +121,8 @@ mongoose.connect(process.env.MONGO_URI, {
         console.error("Failed to retrieve data from MongoDB:", err);
         // res.status(500).send("Internal Server Error");
       }
+
+      res.sendFile(path.join(__dirname, '/assets/pages/showing.html'));
 
     });
 
