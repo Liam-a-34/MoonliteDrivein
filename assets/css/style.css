@@ -256,20 +256,6 @@ main{
     right: 0;
 }
 
-/* #slide1:hover {
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    z-index: 200;
-    transform: scale(1.05);
-    animation: one-screen-move 1.2s;
-  }
-  
-  #slide4:hover {
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    z-index: 200;
-    transform: scale(1.05);
-    animation: two-screen-move 1.2s;
-  } */
-
   .slide1-forward{
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     z-index: 200;
@@ -809,3 +795,63 @@ footer{
 .extra-info p:last-child{
     margin: 10px 0;
 }
+
+.login-body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-div{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-div img{
+    width: 400px;
+}
+
+.login-div h2{
+    font-size: 60px;
+    font-family: "Open Sans", sans-serif;
+    color: rgb(186, 73, 73);
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}
+
+.login-inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 10px;
+}
+
+.login-inputs input{
+    width: 87%;
+    height: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid rgb(186, 73, 73);
+    outline: none;
+    font-size: 25px;
+    padding: 0 10px;
+    font-family: "Montserrat";
+}
+
