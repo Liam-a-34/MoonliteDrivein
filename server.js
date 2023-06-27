@@ -111,6 +111,39 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
     app.get(
       "/homeUpdate/:movie1/:movie2/:movie3/:movie4/:announceImg/:announceHead/:announceText",
       async (req, res) => {
+
+          const file1 = req.params.movie1;
+          const file2 = req.params.movie2;
+          const file3 = req.params.movie3;
+          const file4 = req.params.movie4;
+          const file5 = req.params.announceImg;
+
+          const filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
+          const filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
+          const filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
+          const filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
+          const filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
+
+          for(let i = 1; i < 6; i++){
+
+            var file = file[i]
+            var filePath = filePath[i]
+
+            const params = {
+              Bucket: bucketName,
+              Key: file,
+              Body: filePath,
+            }
+
+            s3.upload(params, function(err, data) {
+              if (err) {
+                console.log('Error uploading image:', err);
+              } else {
+                console.log('Image uploaded:', data.Location);
+              };
+
+          })
+
         try {
           const updatedData = {
             movie1: req.params.movie1,
@@ -128,34 +161,6 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           console.log(filter);
           const updatedDocument = await Moonlite.findOneAndUpdate(filter, updatedData, options).exec();
 
-          const file1 = req.params.movie1;
-          const file2 = req.params.movie2;
-          const file3 = req.params.movie3;
-          const file4 = req.params.movie4;
-          const file5 = req.params.announceImg;
-
-          const filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
-          const filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
-          const filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
-          const filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
-          const filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
-
-          for(let i = 1; i < 6; i++){
-            const params = {
-              Bucket: bucketName,
-              Key: file[i],
-              Body: filePath[i]
-            }
-
-            s3.upload(params, function(err, data) {
-              if (err) {
-                console.log('Error uploading image:', err);
-              } else {
-                console.log('Image uploaded:', data.Location);
-              };
-            });
-          }
-
           if (!updatedDocument) {
             console.log("Document not found");
             return res.status(404).send("Document not found");
@@ -168,7 +173,7 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
           res.status(500).send("Internal Server Error");
         }
       }
-    );
+  });
 
     app.listen(process.env.PORT || 3000, () => {
       console.log(`API server running on port ${process.env.PORT || 3000}!`);
