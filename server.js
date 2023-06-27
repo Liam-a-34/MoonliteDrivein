@@ -112,6 +112,8 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
       "/homeUpdate/:movie1/:movie2/:movie3/:movie4/:announceImg/:announceHead/:announceText",
       async (req, res) => {
 
+        try {
+
           const file1 = req.params.movie1;
           const file2 = req.params.movie2;
           const file3 = req.params.movie3;
@@ -144,7 +146,6 @@ mongoose.connect("mongodb+srv://liamallen343:liamallen34@moonlitecluster.fhjc5xd
 
           })
 
-        try {
           const updatedData = {
             movie1: req.params.movie1,
             movie2: req.params.movie2,
