@@ -126,7 +126,7 @@ mongoose.connect(process.env.MONGO_URI, {
           var filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
           var filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
 
-          for(let i = 1; i < 7; i++){
+          for(let i = 1; i < 6; i++){
 
             var file = eval("file" + i)
             var filePath = eval("filePath" + i)
