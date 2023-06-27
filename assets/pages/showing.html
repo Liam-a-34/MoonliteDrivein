@@ -79,6 +79,31 @@
             <h3>Made by Liam Allen <span><a target="_blank" href="https://github.com/Liam-a-34"><img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687884288/icons8-github-64_fnkw35.png"/></a></span></h3>
         </div>
     </footer>
+
+    <script>
+        const slide1 = document.getElementById('slide1');
+        const slide4 = document.getElementById('slide4');
+      
+        slide1.addEventListener('mouseover', () => {
+          slide1.classList.add('slide1-forward');
+          slide1.classList.remove('slide1-reverse');
+        });
+      
+        slide1.addEventListener('mouseout', () => {
+          slide1.classList.remove('slide1-forward');
+          slide1.classList.add('slide1-reverse');
+        });
+      
+        slide4.addEventListener('mouseover', () => {
+            slide4.classList.add('slide4-forward');
+            slide4.classList.remove('slide4-reverse');
+        });
+      
+        slide4.addEventListener('mouseout', () => {
+            slide4.classList.remove('slide4-forward');
+            slide4.classList.add('slide4-reverse');
+        });
+      </script>
     
 </body>
 
