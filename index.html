@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://res.cloudinary.com/dkmdfgbpz/raw/upload/v1687555240/style_pu7xbs.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <title>Moonlite | Home</title>
 </head>
 <body>
@@ -125,30 +126,35 @@
             <h3>Made by Liam Allen <span><a target="_blank" href="https://github.com/Liam-a-34"><img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687884288/icons8-github-64_fnkw35.png"/></a></span></h3>
         </div>
     </footer>
+
+    <script>
+        const slide1 = document.getElementById('slide1');
+        const slide4 = document.getElementById('slide4');
+      
+        slide1.addEventListener('mouseover', () => {
+          slide1.classList.add('slide1-forward');
+          slide1.classList.remove('slide1-reverse');
+        });
+      
+        slide1.addEventListener('mouseout', () => {
+          slide1.classList.remove('slide1-forward');
+          slide1.classList.add('slide1-reverse');
+        });
+      
+        slide4.addEventListener('mouseover', () => {
+            slide4.classList.add('slide4-forward');
+            slide4.classList.remove('slide4-reverse');
+        });
+      
+        slide4.addEventListener('mouseout', () => {
+            slide4.classList.remove('slide4-forward');
+            slide4.classList.add('slide4-reverse');
+        });
+      </script>
     
 </body>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-    const slide1 = document.getElementById('slide1');
-    const slide4 = document.getElementById('slide4');
 
-    slide1.addEventListener('mouseenter', () => {
-        slide1.classList.add('reverse');
-    });
-
-    slide1.addEventListener('mouseleave', () => {
-        slide1.classList.remove('reverse');
-    });
-
-    slide4.addEventListener('mouseenter', () => {
-        slide4.classList.add('reverse');
-    });
-
-    slide4.addEventListener('mouseleave', () => {
-        slide4.classList.remove('reverse');
-    });
-
-    </script>
     <!-- REPLACE_WITH_JSON -->
 </html>
