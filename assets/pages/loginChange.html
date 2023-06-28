@@ -8,21 +8,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Moonlite | Login</title>
+    <title>Moonlite | LoginChange</title>
 </head>
 <body class="login-body">
 
     <main class="login-main">
 
-        <div class="login-div">
+        <div class="login-div newLogin-div">
             <img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687554998/moonlite-logo-cropped_noncq8.png"/>
-            <h2>Admin Login</h2>
+            <h2>Change Login</h2>
             <div class="login-inputs">
-                <input id="username" type="text" placeholder="Username"/>
-                <input id="password" type="password" placeholder="Password"/>
+                <input id="oldUsername" type="text" placeholder="Old Username"/>
+                <input id="oldPassword" type="password" placeholder="Old Password"/>
+                <input id="newUsername" type="text" placeholder="New Username"/>
+                <input id="newPassword" type="password" placeholder="New Password"/>
             </div>
-            <button id="login-button">Login</button>
-            <a id="password-change">Change Password</a>
+            <button id="login-button" class="login-change-button">Submit</button>
 
         </div>
 

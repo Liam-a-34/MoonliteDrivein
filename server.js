@@ -86,12 +86,76 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
     });
 
+    app.get('/assets/pages/loginChange.html', async (req, res) => {
+      try {
+        const data = await Moonlite.find({});
+        console.log(data);
+        const jsonData = JSON.stringify(data);
+        console.log(jsonData);
+    
+        const loginChangeHtml = fs.readFileSync("./assets/pages/login.html", "utf8");
+    
+        const loggedinNewHtml = loginChangeHtml.replace(
+          "<!-- REPLACE_WITH_JSON -->",
+          `<script>
+            var serverData = ${jsonData};
+            console.log(serverData)
+
+            const username = serverData[0].moonliteUsername
+            const password = serverData[0].moonlitePassword
+          </script>`
+        );
+    
+        res.send(changedHtml);
+      } catch (err) {
+        console.error("Failed to retrieve data from MongoDB:", err);
+        // res.status(500).send("Internal Server Error");
+      }
+      res.sendFile(path.join(__dirname, '/assets/pages/loginChange.html'));
+    });
+
     app.get('/assets/pages/login.html', async (req, res) => {
+
+      try {
+        const data = await Moonlite.find({});
+        console.log(data);
+        const jsonData = JSON.stringify(data);
+        console.log(jsonData);
+    
+        const loginHtml = fs.readFileSync("./assets/pages/login.html", "utf8");
+    
+        const loggedinHtml = loginHtml.replace(
+          "<!-- REPLACE_WITH_JSON -->",
+          `<script>
+            var serverData = ${jsonData};
+            console.log(serverData)
+
+            const username = serverData[0].moonliteUsername
+            const password = serverData[0].moonlitePassword
+
+            document.queryselector(".login-button).addEventListener("click", function(){
+              if(document.getElementById("username") == username && document.getElementById("password") == password){
+                window.location = "/admin"
+              }
+            })
+          </script>`
+        );
+    
+        res.send(changedHtml);
+      } catch (err) {
+        console.error("Failed to retrieve data from MongoDB:", err);
+        // res.status(500).send("Internal Server Error");
+      }
+
       res.sendFile(path.join(__dirname, '/assets/pages/login.html'));
     });
 
     app.get('/assets/css/style.css', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/css/style.css'));
+    });
+
+    app.get('/assets/js/index.js', async (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/js/index.js'));
     });
 
     // app.get("/favicon.ico", async (req, res) => {

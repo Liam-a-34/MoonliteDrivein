@@ -817,7 +817,6 @@ footer{
 
 .login-div{
     width: 400px;
-    height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -854,5 +853,32 @@ footer{
     font-size: 25px;
     padding: 0 10px;
     font-family: "Montserrat";
+}
+
+#login-button{
+    height: 40px;
+    width: 250px;
+    align-self: center;
+    border-radius: 6px;
+    background-color: #0da3fa;
+    border: none;
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+}
+
+#login-button:hover{
+    cursor: pointer;
+}
+
+#password-change{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    text-decoration: underline;
+    color: blue
+}
+
+#password-change:hover{
+    cursor: pointer;
 }
 
