@@ -177,7 +177,9 @@ mongoose.connect(process.env.MONGO_URI, {
           })
 
             document.querySelector("#login-button").addEventListener("click", function(){
+              console.log("Clicked Button)
               if(document.getElementById("username") == username && document.getElementById("password") == password){
+                console.log("Submitted Info)
                 window.location.assign("/admin/moonlite/administrator")
               }
             })
