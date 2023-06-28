@@ -22,6 +22,8 @@ const moonliteSchema = new mongoose.Schema({
   movie2: String,
   movie3: String,
   movie4: String,
+  MoonlitePassword: String,
+  MoonliteUsername: String
 });
 
 // Register the "moonliteCollection" model with Mongoose
