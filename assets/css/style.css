@@ -893,3 +893,16 @@ footer{
     cursor: pointer;
 }
 
+.admin-page{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.admin-header{
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 60px;
+    color: rgb(186, 73, 73);
+    margin-top: 15px;
+}
