@@ -163,7 +163,7 @@ mongoose.connect(process.env.MONGO_URI, {
             const username = serverData[0].moonliteUsername
             const password = serverData[0].moonlitePassword
 
-          document.getElementById("password-change).addEventListener("click", function(){
+          document.getElementById("password-change").addEventListener("click", function(){
             window.location = "/loginChange"
           })
 
