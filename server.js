@@ -96,7 +96,6 @@ mongoose.connect(process.env.MONGO_URI, {
         }
 
         console.log("Document updated successfully:", updateDocument);
-        res.status(200).send("Document updated successfully");
       }
 
     } catch {
@@ -296,27 +295,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
           })
         }
-
-        // const url1 = s3.getSignedUrl('getObject', {
-        //   Bucket: bucketName,
-        //   Key: filePath1,
-        // });
-        // const url2 = s3.getSignedUrl('getObject', {
-        //   Bucket: bucketName,
-        //   Key: filePath2,
-        // });
-        // const url3 = s3.getSignedUrl('getObject', {
-        //   Bucket: bucketName,
-        //   Key: filePath3,
-        // });
-        // const url4 = s3.getSignedUrl('getObject', {
-        //   Bucket: bucketName,
-        //   Key: filePath4,
-        // });
-        // const url5 = s3.getSignedUrl('getObject', {
-        //   Bucket: bucketName,
-        //   Key: filePath5,
-        // });
 
           const updatedData = {
             movie1: req.params.movie1,
