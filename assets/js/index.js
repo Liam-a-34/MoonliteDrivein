@@ -3,6 +3,6 @@ document.querySelector(".login-change-button").addEventListener("click", functio
         var newUser = document.getElementById("newUsername")
         var newPass = document.getElementById("newPassword")
         
-        window.location = `/admin/${newUser}/${newPass}`
+        window.location.assign(`/admin/${newUser}/${newPass}`)
     }
 })
