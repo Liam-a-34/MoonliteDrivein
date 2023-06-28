@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="width:100%; height:100%;" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Moonlite | Admin</title>
 </head>
-<body>
+<body class="admin-body">
 
     <main class="admin-page">
         
@@ -22,20 +22,36 @@
 
                 <div class="admin-text-inputs">
                     <input type="text" placeholder="Announcement Title"/>
-                    <textarea placeholder="Announcement Content"/>
+                    <textarea placeholder="Announcement Content"></textarea>
                 </div>
 
                 <div class="admin-image-inputs">
-                    <input type="file" id="announce-img-input"/>
-                    <input type="file" id="movie1-input"/>
-                    <input type="file" id="movie2-input"/>
-                    <input type="file" id="movie3-input"/>
-                    <input type="file" id="movie4-input"/>
+                    <div>
+                        <input type="file" id="announce-img-input"/>
+                        <label for="announce-img-input">Announcement Image (Optional)</label>
+                    </div>
+                    <div>
+                        <input type="file" id="movie1-input"/>
+                        <label for="movie1-input">First Movie (Screen 1)</label>
+                    </div>
+                    <div>
+                        <input type="file" id="movie2-input"/>
+                        <label for="movie2-input">Second Movie (Screen 1)</label>
+                    </div>
+                    <div>
+                        <input type="file" id="movie3-input"/>
+                        <label for="movie3-input">First Movie (Screen 2)</label>
+                    </div>
+                    <div>
+                        <input type="file" id="movie4-input"/>
+                        <label for="movie4-input">Second Movie (Screen 2)</label>
+                    </div>
                 </div>
             </div>
+
     </main>
 
-    <footer>
+    <footer id="admin-footer">
         <div class="footer-div1">
             <h3><span><img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687554998/moonlite-logo-cropped_noncq8.png"/></span>Higgins Moonlite Drive-In</h3>
             <div>
@@ -47,6 +63,7 @@
             <h3>Made by Liam Allen <span><a target="_blank" href="https://github.com/Liam-a-34"><img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687884288/icons8-github-64_fnkw35.png"/></a></span></h3>
         </div>
     </footer>
+
     
 </body>
 </html>

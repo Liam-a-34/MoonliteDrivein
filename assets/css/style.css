@@ -522,58 +522,6 @@ main{
     cursor: pointer;
 }
 
-footer{
-    width: 100%;
-    height: 150px;
-}
-
-.footer-div1{
-    width: 100%;
-    background-color: rgb(186, 73, 73);
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-div1 h3{
-    font-size: 25px;
-    font-family: "Open Sans", sans-serif;
-    color: white;
-}
-
-.footer-div1 h3 img{
-    height: 30px;
-    position: relative;
-    top: 5px
-}
-
-.footer-div1 p{
-    text-align: center;
-    margin: 5px;
-    font-family: "Open Sans", sans-serif;
-    color: white;
-}
-
-.footer-div2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 100%;
-    font-family: "Montserrat", sans-serif;
-    color: grey;
-    font-size: 15px;
-    background-color: white;
-}
-
-.footer-div2 h3 img{
-    width: 30px;
-    position: relative;
-    top: 8px
-}
-
 .showing-main{
     background-color: rgb(246, 246, 246);
 }
@@ -893,10 +841,33 @@ footer{
     cursor: pointer;
 }
 
-.admin-page{
+.admin-body{
     position: relative;
-    width: 100%;
     height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.admin-page{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.admin-cont{
+    width: 800px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-cont h3{
+    font-size: 40px;
+    font-family: "Open Sans";
+    margin-bottom: 15px
 }
 
 .admin-header{
@@ -905,4 +876,117 @@ footer{
     font-size: 60px;
     color: rgb(186, 73, 73);
     margin-top: 15px;
+    position: absolute;
+    top: 15px;
+}
+
+.admin-text-inputs{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+
+.admin-text-inputs input{
+    height: 50px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    outline: none;
+    font-size: 18px;
+}
+
+.admin-text-inputs textarea{
+    height: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    resize: none;
+    font-size: 15px;
+    outline: none
+}
+
+.admin-image-inputs{
+    width: 600px;
+}
+
+.admin-image-inputs div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-left: 10px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+
+
+.admin-image-inputs input{
+    height: 40px;
+}
+
+.admin-image-inputs label{
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#admin-footer{
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+
+
+
+footer{
+    width: 100%;
+    height: 150px;
+}
+
+.footer-div1{
+    width: 100%;
+    background-color: rgb(186, 73, 73);
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-div1 h3{
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+.footer-div1 h3 img{
+    height: 30px;
+    position: relative;
+    top: 5px
+}
+
+.footer-div1 p{
+    text-align: center;
+    margin: 5px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+
+.footer-div2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    color: grey;
+    font-size: 15px;
+    background-color: white;
+}
+
+.footer-div2 h3 img{
+    width: 30px;
+    position: relative;
+    top: 8px
 }
