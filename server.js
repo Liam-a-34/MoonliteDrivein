@@ -145,7 +145,7 @@ mongoose.connect(process.env.MONGO_URI, {
           </script>`
         );
     
-        res.send(changedHtml);
+        res.send(loggedinNewHtml);
       } catch (err) {
         console.error("Failed to retrieve data from MongoDB:", err);
         // res.status(500).send("Internal Server Error");
