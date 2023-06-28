@@ -123,7 +123,7 @@ mongoose.connect(process.env.MONGO_URI, {
         const jsonData = JSON.stringify(data);
         console.log(jsonData);
     
-        const loginChangeHtml = fs.readFileSync("./assets/pages/login.html", "utf8");
+        const loginChangeHtml = fs.readFileSync("./assets/pages/loginChange.html", "utf8");
     
         const loggedinNewHtml = loginChangeHtml.replace(
           "<!-- REPLACE_WITH_JSON -->",
