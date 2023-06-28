@@ -86,6 +86,8 @@ mongoose.connect(process.env.MONGO_URI, {
           moonlitePassword: req.params.second
         };
 
+        console.log(updateData)
+
         const filter = { _id: new mongoose.Types.ObjectId("6495f0d65bafa39e36c4ec39") };
         const options = { new: true }; // Return the updated document
 
