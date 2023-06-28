@@ -74,7 +74,7 @@ mongoose.connect(process.env.MONGO_URI, {
       }
     });
 
-    app.get('/assets/pages/admin.html', async (req, res) => {
+    app.get('/admin', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
     });
 
