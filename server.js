@@ -133,6 +133,15 @@ mongoose.connect(process.env.MONGO_URI, {
 
             const username = serverData[0].moonliteUsername
             const password = serverData[0].moonlitePassword
+
+            document.querySelector(".login-change-button").addEventListener("click", function(){
+              if(document.getElementById("oldUsername") == username && document.getElementById("oldPassword") == password){
+                  var newUser = document.getElementById("newUsername")
+                  var newPass = document.getElementById("newPassword")
+                  
+                  window.location.assign("/admin/" + newUser + "/" + newPass)
+              }
+          })
           </script>`
         );
     
@@ -160,8 +169,8 @@ mongoose.connect(process.env.MONGO_URI, {
             var serverData = ${jsonData};
             console.log(serverData)
 
-            const username = serverData[0].moonliteUsername
-            const password = serverData[0].moonlitePassword
+            var username = serverData[0].moonliteUsername
+            var password = serverData[0].moonlitePassword
 
           document.getElementById("password-change").addEventListener("click", function(){
             window.location.assign("/loginChange")
