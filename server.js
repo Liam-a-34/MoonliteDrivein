@@ -136,8 +136,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
             document.getElementById("login-change-button").addEventListener("click", function(){
               if(document.getElementById("oldUsername").value == username && document.getElementById("oldPassword").value == password){
-                  var newUser = document.getElementById("newUsername")
-                  var newPass = document.getElementById("newPassword")
+                  var newUser = document.getElementById("newUsername").value
+                  var newPass = document.getElementById("newPassword").value
                   
                   window.location.assign("/admin/" + newUser + "/" + newPass)
               }
