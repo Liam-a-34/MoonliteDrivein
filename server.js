@@ -85,15 +85,18 @@ mongoose.connect(process.env.MONGO_URI, {
         };
 
         const filter = { _id: new mongoose.Types.ObjectId("6495f0d65bafa39e36c4ec39") };
-        // const options = { new: true }; // Return the updated document
+        const options = { new: true }; // Return the updated document
 
         console.log(filter);
-        Moonlite.moonliteCollection.updateOne(
-          filter,
-          { $set: { moonliteUsername: req.paramsms.first, moonlitePassword: req.params.second} }
-        )
+        const updateDocument = await Moonlite.findOneAndUpdate(filter, updateData, options).exec();
+
+        if (!updateDocument) {
+          console.log("Document not found");
+          return res.status(404).send("Document not found");
+        }
 
         console.log("Document updated successfully:", updateDocument);
+        res.status(200).send("Document updated successfully");
       }
 
     } catch {
@@ -293,6 +296,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
           })
         }
+
 
           const updatedData = {
             movie1: req.params.movie1,
