@@ -134,7 +134,7 @@ mongoose.connect(process.env.MONGO_URI, {
             const username = serverData[0].moonliteUsername
             const password = serverData[0].moonlitePassword
 
-            document.querySelector(".login-change-button").addEventListener("click", function(){
+            document.getElementById("login-change-button").addEventListener("click", function(){
               if(document.getElementById("oldUsername").value == username && document.getElementById("oldPassword").value == password){
                   var newUser = document.getElementById("newUsername")
                   var newPass = document.getElementById("newPassword")

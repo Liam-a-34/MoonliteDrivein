@@ -866,6 +866,17 @@ footer{
     color: rgb(232, 232, 232);
 }
 
+.login-button{
+    height: 40px;
+    width: 250px;
+    align-self: center;
+    border-radius: 6px;
+    background-color: #0da3fa;
+    border: none;
+    font-size: 25px;
+    color: rgb(232, 232, 232);
+}
+
 #login-button:hover{
     cursor: pointer;
 }
