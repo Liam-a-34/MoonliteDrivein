@@ -116,7 +116,7 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
     });
 
-    app.get('/assets/pages/loginChange.html', async (req, res) => {
+    app.get('/loginChange', async (req, res) => {
       try {
         const data = await Moonlite.find({});
         console.log(data);
@@ -162,6 +162,10 @@ mongoose.connect(process.env.MONGO_URI, {
 
             const username = serverData[0].moonliteUsername
             const password = serverData[0].moonlitePassword
+
+          document.getElementById("password-change).addEventListener("click", function(){
+            window.location = "/loginChange"
+          })
 
             document.queryselector(".login-button).addEventListener("click", function(){
               if(document.getElementById("username") == username && document.getElementById("password") == password){
