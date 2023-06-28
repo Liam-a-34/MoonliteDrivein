@@ -100,7 +100,6 @@ mongoose.connect(process.env.MONGO_URI, {
         }
 
         console.log("Document updated successfully:", updateDocument);
-        res.status(200).send("Document updated successfully");
       }
 
     } catch {
