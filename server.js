@@ -75,6 +75,36 @@ mongoose.connect(process.env.MONGO_URI, {
     });
 
     app.get('/admin/:first/:second', async (req, res) => {
+
+      try{
+
+      if(req.params.first !== "moonlite" && req.params.second !== "administrator"){
+        const updateData = {
+          moonliteUsername: req.params.first,
+          moonlitePassword: req.params.second
+        };
+
+        const filter = { _id: new mongoose.Types.ObjectId("6495f0d65bafa39e36c4ec39") };
+        const options = { new: true }; // Return the updated document
+
+        console.log(filter);
+        const updateDocument = await Moonlite.findOneAndUpdate(filter, updateData, options).exec();
+
+        if (!updateDocument) {
+          console.log("Document not found");
+          return res.status(404).send("Document not found");
+        }
+
+        console.log("Document updated successfully:", updateDocument);
+        res.status(200).send("Document updated successfully");
+      }
+
+    } catch {
+      console.error("Failed to update document:", err);
+      res.status(500).send("Internal Server Error");
+    }
+
+
       res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
     });
 
@@ -135,7 +165,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
             document.queryselector(".login-button).addEventListener("click", function(){
               if(document.getElementById("username") == username && document.getElementById("password") == password){
-                window.location = "/admin"
+                window.location = "/admin/moonlite/administrator"
               }
             })
           </script>`
