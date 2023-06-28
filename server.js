@@ -144,7 +144,7 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/loginChange.html'));
     });
 
-    app.get('/assets/pages/login', async (req, res) => {
+    app.get('/login', async (req, res) => {
 
       try {
         const data = await Moonlite.find({});
