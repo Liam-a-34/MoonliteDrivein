@@ -167,7 +167,7 @@ mongoose.connect(process.env.MONGO_URI, {
             window.location.assign("/loginChange")
           })
 
-            document.queryselector(".login-button).addEventListener("click", function(){
+            document.queryselector(".login-button").addEventListener("click", function(){
               if(document.getElementById("username") == username && document.getElementById("password") == password){
                 window.location = "/admin/moonlite/administrator"
               }
