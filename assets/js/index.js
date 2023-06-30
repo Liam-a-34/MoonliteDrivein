@@ -21,26 +21,27 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     if(document.getElementById("check1").checked){
         fileName1 = "unavailable.png"
     } else {
+        fileName1 = file1.name
         uploadImage("announce-img-input", function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName1 = url ? url : "unavailable.png";
             console.log("fileName1:", fileName1);
           });
     }
-
     if(document.getElementById("check2").checked){
         fileName2 = "unavailable.png"
     } else {
+        fileName2 = file2.name
         uploadImage("movie1-input", function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName2 = url ? url : "unavailable.png";
             console.log("fileName2:", fileName2);
           });
     }
-
     if(document.getElementById("check3").checked){
         fileName3 = "unavailable.png"
     } else {
+        fileName3 = file3.name
         uploadImage("movie2-input", function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName3 = url ? url : "unavailable.png";
@@ -51,6 +52,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     if(document.getElementById("check4").checked){
         fileName4 = "unavailable.png"
     } else {
+        fileName4 = file4.name
         uploadImage("movie3-input", function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName4 = url ? url : "unavailable.png";
@@ -61,6 +63,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     if(document.getElementById("check5").checked){
         fileName5 = "unavailable.png"
     } else {
+        fileName5 = file5.name
         uploadImage("movie4-input", function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName5 = url ? url : "unavailable.png";
