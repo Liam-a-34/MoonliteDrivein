@@ -20,9 +20,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
     if(document.getElementById("check1").checked){
         fileName1 = "unavailable.png"
-        console.log("fileName1")
     } else {
-        fileName1 = file1.name
         uploadImage(fileInput1, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName1 = url ? url : "unavailable.png";
@@ -32,49 +30,41 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
     if(document.getElementById("check2").checked){
         fileName2 = "unavailable.png"
-        console.log("fileName2")
     } else {
-        fileName2 = file2.name
         uploadImage(fileInput2, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName2 = url ? url : "unavailable.png";
-            console.log("fileName1:", fileName2);
+            console.log("fileName2:", fileName2);
           });
     }
 
     if(document.getElementById("check3").checked){
         fileName3 = "unavailable.png"
-        console.log("fileName3")
     } else {
-        fileName3 = file3.name
         uploadImage(fileInput3, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName3 = url ? url : "unavailable.png";
-            console.log("fileName1:", fileName3);
+            console.log("fileName3:", fileName3);
           });
     }
 
     if(document.getElementById("check4").checked){
         fileName4 = "unavailable.png"
-        console.log("fileName4")
     } else {
-        fileName4 = file4.name
         uploadImage(fileInput4, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName4 = url ? url : "unavailable.png";
-            console.log("fileName1:", fileName4);
+            console.log("fileName4:", fileName4);
           });
     }
 
     if(document.getElementById("check5").checked){
         fileName5 = "unavailable.png"
-        console.log("fileName5")
     } else {
-        fileName5 = file5.name
         uploadImage(fileInput5, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName5 = url ? url : "unavailable.png";
-            console.log("fileName1:", fileName5);
+            console.log("fileName5:", fileName5);
           });
     }
 
@@ -86,7 +76,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 
 function uploadImage(chosenFile) {
-    const fileInput = chosenFile
+    const fileInput = document.getElementById()
     const file = fileInput.files[0];
 
     if (file) {
