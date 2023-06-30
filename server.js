@@ -245,32 +245,36 @@ mongoose.connect(process.env.MONGO_URI, {
 
     });
 
-    const upload = multer({
-      storage: multerS3({
-        s3: s3,
-        bucket: 'moonlitebucket',
-        key: function (req, file, cb) {
-          cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
-        },
-      }),
+    const storage = multer.diskStorage({
+      destination: './assets/images/', // Set the destination folder
+      filename: (req, file, cb) => {
+        // Generate a unique filename for the uploaded image
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        const { name, ext } = path.parse(file.originalname);
+        const newFileName = name + '-' + uniqueSuffix + ext;
+        cb(null, newFileName);
+      },
     });
     
-    app.post('/upload', upload.single('imageFile'), (req, res) => {
-      const file = req.file;
+    // Create the multer upload instance
+    const upload = multer({ storage });
     
-      if (!file) {
-        return res.status(400).json({ message: 'No file received.' });
+    // Handle the POST request to /upload
+    app.post('/upload', upload.single('image'), (req, res) => {
+      if (req.file) {
+        const { name, ext } = path.parse(req.file.originalname);
+    
+        console.log('Image saved:', req.file.filename);
+        console.log('Image name:', name);
+        console.log('Image extension:', ext);
+    
+        // Handle successful image upload
+        res.sendStatus(200);
+      } else {
+        console.log('No image file received.');
+        // Handle failure
+        res.sendStatus(400);
       }
-    
-      uploadImageToS3(file.buffer)
-        .then((imageUrl) => {
-          console.log(imageUrl);
-          res.json({ message: 'Image uploaded successfully.' });
-        })
-        .catch((error) => {
-          console.log('Error uploading image:', error);
-          res.status(500).json({ message: 'Image upload failed.' });
-        });
     });
 
     app.get("/all-data", async (req, res) => {
