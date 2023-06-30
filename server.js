@@ -245,17 +245,22 @@ mongoose.connect(process.env.MONGO_URI, {
 
     });
 
-    const upload = multer({
-      storage: multerS3({
-        s3: s3,
+    const upload = {
         bucket: "moonlitebucket",
-        key: function (req, file, cb) {
-          cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
-        }
-      })
-    });
+        key: req.body
+      }
 
-    app.post("/upload", upload.single("imageFile"), (req, res) => {
+
+    app.post("/upload", (req, res) => {
+
+      s3.upload(upload, function(err, data) {
+              if (err) {
+                console.log('Error uploading image:', err);
+              } else {
+                console.log('Image uploaded:', data.Location);
+              };
+
+          })
       console.log(req.file.location)
       res.json({ message: 'Image uploaded successfully.' });
     })
