@@ -92,6 +92,7 @@ function uploadImage(chosenFile) {
     if (file) {
       const formData = new FormData();
       formData.append('imageFile', file);
+      console.log(formData)
 
       fetch('/upload', {
         method: 'POST',
