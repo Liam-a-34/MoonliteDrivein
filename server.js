@@ -245,19 +245,21 @@ mongoose.connect(process.env.MONGO_URI, {
 
     });
 
+    let newFileName;
+
     const storage = multer.diskStorage({
       destination: './assets/images/', // Set the destination folder
       filename: (req, file, cb) => {
         // Generate a unique filename for the uploaded image
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         const { name, ext } = path.parse(file.originalname);
-        const newFileName = name + '-' + uniqueSuffix + ext;
+        newFileName = name + '-' + uniqueSuffix + ext; // Assign the value to newFileName
         cb(null, newFileName);
       },
     });
     
-    // Create the multer upload instance
-    const upload = multer({ storage });
+    // Create multer instance
+    const upload = multer({ storage: storage });
     
     // Handle the POST request to /upload
     app.post('/upload', upload.single('imageFile'), (req, res) => {
@@ -267,10 +269,10 @@ mongoose.connect(process.env.MONGO_URI, {
         console.log('Image saved:', req.file.filename);
         console.log('Image name:', name);
         console.log('Image extension:', ext);
-
+    
         const params = {
           Bucket: "moonlitebucket",
-          Key: newFileName,
+          Key: newFileName, // Access newFileName defined in the outer scope
           Body: destination,
         }
   
