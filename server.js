@@ -287,38 +287,38 @@ mongoose.connect(process.env.MONGO_URI, {
 
         try {
 
-          const file1 = req.params.movie1;
-          const file2 = req.params.movie2;
-          const file3 = req.params.movie3;
-          const file4 = req.params.movie4;
-          const file5 = req.params.announceImg;
+        //   const file1 = req.params.movie1;
+        //   const file2 = req.params.movie2;
+        //   const file3 = req.params.movie3;
+        //   const file4 = req.params.movie4;
+        //   const file5 = req.params.announceImg;
 
-          var filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
-          var filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
-          var filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
-          var filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
-          var filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
+        //   var filePath1 = fs.readFileSync(`./assets/images/${req.params.movie1}`)
+        //   var filePath2 = fs.readFileSync(`./assets/images/${req.params.movie2}`)
+        //   var filePath3 = fs.readFileSync(`./assets/images/${req.params.movie3}`)
+        //   var filePath4 = fs.readFileSync(`./assets/images/${req.params.movie4}`)
+        //   var filePath5 = fs.readFileSync(`./assets/images/${req.params.announceImg}`)
 
-          for(let i = 1; i < 6; i++){
+        //   for(let i = 1; i < 6; i++){
 
-            var file = eval("file" + i)
-            var filePath = eval("filePath" + i)
+        //     var file = eval("file" + i)
+        //     var filePath = eval("filePath" + i)
 
-            const params = {
-              Bucket: bucketName,
-              Key: file,
-              Body: filePath,
-            }
+        //     const params = {
+        //       Bucket: bucketName,
+        //       Key: file,
+        //       Body: filePath,
+        //     }
 
-            s3.upload(params, function(err, data) {
-              if (err) {
-                console.log('Error uploading image:', err);
-              } else {
-                console.log('Image uploaded:', data.Location);
-              };
+        //     s3.upload(params, function(err, data) {
+        //       if (err) {
+        //         console.log('Error uploading image:', err);
+        //       } else {
+        //         console.log('Image uploaded:', data.Location);
+        //       };
 
-          })
-        }
+        //   })
+        // }
 
 
           const updatedData = {
