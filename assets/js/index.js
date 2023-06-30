@@ -17,35 +17,35 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         const fileName1 = "unavailable.png"
     } else {
         const fileName1 = file1.name
-        uploadImage("announce-img-input")
+        uploadImage(fileInput1)
     }
 
     if(document.getElementById("check2").checked){
         const fileName2 = "unavailable.png"
     } else {
         const fileName2 = file2.name
-        uploadImage("movie1-input")
+        uploadImage(fileInput2)
     }
 
     if(document.getElementById("check3").checked){
         const fileName3 = "unavailable.png"
     } else {
         const fileName3 = file3.name
-        uploadImage("movie2-input")
+        uploadImage(fileInput3)
     }
 
     if(document.getElementById("check4").checked){
         const fileName4 = "unavailable.png"
     } else {
         const fileName4 = file4.name
-        uploadImage("movie3-input")
+        uploadImage(fileInput4)
     }
 
     if(document.getElementById("check5").checked){
         const fileName5 = "unavailable.png"
     } else {
         const fileName5 = file5.name
-        uploadImage("movie4-input")
+        uploadImage(fileInput5)
     }
 
     setTimeout(function(){
@@ -56,7 +56,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 
 function uploadImage(chosenFile) {
-    const fileInput = document.getElementById(chosenFile);
+    const fileInput = chosenFile
     const file = fileInput.files[0];
 
     if (file) {

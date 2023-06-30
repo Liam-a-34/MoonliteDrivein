@@ -255,6 +255,7 @@ mongoose.connect(process.env.MONGO_URI, {
     });
 
     app.post("/upload", upload.single("imageFile"), (req, res) => {
+      console.log(req.file.location)
       res.json({ message: 'Image uploaded successfully.' });
     })
 
