@@ -867,7 +867,15 @@ main{
 .admin-cont h3{
     font-size: 40px;
     font-family: "Open Sans";
-    margin-bottom: 15px
+    margin-bottom: 10px
+}
+
+.admin-cont p{
+    max-width: 600px;
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .admin-header{
@@ -932,6 +940,27 @@ main{
 #admin-footer{
     position: absolute;
     bottom: 0;
+}
+
+.admin-upload-btn{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    top: 15px;
+    border-radius: 5px;
+    background-color: #0da3fa;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+
+.admin-upload-btn:hover{
+    cursor: pointer;
+}
+
+.checkbox{
+    position: relative;
+    bottom: 5px;
 }
 
 

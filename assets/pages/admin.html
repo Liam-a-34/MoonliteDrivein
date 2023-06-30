@@ -19,34 +19,42 @@
 
             <div class="admin-cont">
                 <h3>Edit Site Content</h3>
+                <p>If there is no movie scheduled for any of the screens, please click the checkbox next to that screen's name. The same applies for the announcement image.</p>
 
                 <div class="admin-text-inputs">
-                    <input type="text" placeholder="Announcement Title"/>
-                    <textarea placeholder="Announcement Content"></textarea>
+                    <input id="title-input" type="text" placeholder="Announcement Title"/>
+                    <textarea id="content-input" placeholder="Announcement Content"></textarea>
                 </div>
 
                 <div class="admin-image-inputs">
                     <div>
                         <input type="file" id="announce-img-input"/>
                         <label for="announce-img-input">Announcement Image (Optional)</label>
+                        <input id="check1" class="checkbox" type="checkbox"/>
                     </div>
                     <div>
                         <input type="file" id="movie1-input"/>
                         <label for="movie1-input">First Movie (Screen 1)</label>
+                        <input id="check2" class="checkbox" type="checkbox"/>
                     </div>
                     <div>
                         <input type="file" id="movie2-input"/>
                         <label for="movie2-input">Second Movie (Screen 1)</label>
+                        <input id="check3" class="checkbox" type="checkbox"/>
                     </div>
                     <div>
                         <input type="file" id="movie3-input"/>
                         <label for="movie3-input">First Movie (Screen 2)</label>
+                        <input id="check4" class="checkbox" type="checkbox"/>
                     </div>
                     <div>
                         <input type="file" id="movie4-input"/>
                         <label for="movie4-input">Second Movie (Screen 2)</label>
+                        <input id="check5" class="checkbox" type="checkbox"/>
                     </div>
                 </div>
+
+                <button class="admin-upload-btn">Change</button>
             </div>
 
     </main>
@@ -64,6 +72,6 @@
         </div>
     </footer>
 
-    
+    <script src="/assets/js/index.js"></script>
 </body>
 </html>

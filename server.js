@@ -4,6 +4,8 @@ const fs = require("fs");
 const app = express();
 const path = require("path");
 const AWS = require("aws-sdk");
+const multer = require('multer');
+const multerS3 = require('multer-s3');
 require("dotenv").config()
 
 AWS.config.update({
@@ -119,42 +121,42 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
     });
 
-    app.get('/loginChange', async (req, res) => {
-      try {
-        const data = await Moonlite.find({});
-        console.log(data);
-        const jsonData = JSON.stringify(data);
-        console.log(jsonData);
+    // app.get('/loginChange', async (req, res) => {
+    //   try {
+    //     const data = await Moonlite.find({});
+    //     console.log(data);
+    //     const jsonData = JSON.stringify(data);
+    //     console.log(jsonData);
     
-        const loginChangeHtml = fs.readFileSync("./assets/pages/loginChange.html", "utf8");
+    //     const loginChangeHtml = fs.readFileSync("./assets/pages/loginChange.html", "utf8");
     
-        const loggedinNewHtml = loginChangeHtml.replace(
-          "<!-- REPLACE_WITH_JSON -->",
-          `<script>
-            var serverData = ${jsonData};
-            console.log(serverData)
+    //     const loggedinNewHtml = loginChangeHtml.replace(
+    //       "<!-- REPLACE_WITH_JSON -->",
+    //       `<script>
+    //         var serverData = ${jsonData};
+    //         console.log(serverData)
 
-            const username = serverData[0].moonliteUsername
-            const password = serverData[0].moonlitePassword
+    //         const username = serverData[0].moonliteUsername
+    //         const password = serverData[0].moonlitePassword
 
-            document.getElementById("login-change-button").addEventListener("click", function(){
-              if(document.getElementById("oldUsername").value == username && document.getElementById("oldPassword").value == password){
-                  var newUser = document.getElementById("newUsername").value
-                  var newPass = document.getElementById("newPassword").value
+    //         document.getElementById("login-change-button").addEventListener("click", function(){
+    //           if(document.getElementById("oldUsername").value == username && document.getElementById("oldPassword").value == password){
+    //               var newUser = document.getElementById("newUsername").value
+    //               var newPass = document.getElementById("newPassword").value
                   
-                  window.location.assign("/admin/" + newUser + "/" + newPass)
-              }
-          })
-          </script>`
-        );
+    //               window.location.assign("/admin/" + newUser + "/" + newPass)
+    //           }
+    //       })
+    //       </script>`
+    //     );
     
-        res.send(loggedinNewHtml);
-      } catch (err) {
-        console.error("Failed to retrieve data from MongoDB:", err);
-        // res.status(500).send("Internal Server Error");
-      }
-      res.sendFile(path.join(__dirname, '/assets/pages/loginChange.html'));
-    });
+    //     res.send(loggedinNewHtml);
+    //   } catch (err) {
+    //     console.error("Failed to retrieve data from MongoDB:", err);
+    //     // res.status(500).send("Internal Server Error");
+    //   }
+    //   res.sendFile(path.join(__dirname, '/assets/pages/loginChange.html'));
+    // });
 
     app.get('/login', async (req, res) => {
 
@@ -246,6 +248,20 @@ mongoose.connect(process.env.MONGO_URI, {
 
     });
 
+    const upload = multer({
+      storage: multerS3({
+        s3: s3,
+        bucket: 'YOUR_S3_BUCKET_NAME',
+        key: function (req, file, cb) {
+          cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
+        }
+      })
+    });
+
+    app.post("/upload", upload.single("imageFile"), (req, res) => {
+      res.json({ message: 'Image uploaded successfully.' });
+    })
+
     app.get("/all-data", async (req, res) => {
       try {
         const result = await Moonlite.find().exec();
@@ -260,6 +276,10 @@ mongoose.connect(process.env.MONGO_URI, {
         res.status(500).json({ message: 'Internal Server Error' });
       }
     });
+
+    app.get("/unavailable", async (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/images/unavailable.png'));
+    })
 
     app.get(
       "/homeUpdate/:movie1/:movie2/:movie3/:movie4/:announceImg/:announceHead/:announceText",
