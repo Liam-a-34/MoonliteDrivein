@@ -249,28 +249,17 @@ mongoose.connect(process.env.MONGO_URI, {
     const upload = multer({
       storage: multerS3({
         s3: s3,
-        bucket: 'moonlitebucket',
-        shouldTransform: function (req, file, cb) {
-          // You can check file types and decide whether to transform or not
-          cb(null, /^image/i.test(file.mimetype));
-        },
-        transforms: [{
-          id: 'original',
-          key: function (req, file, cb) {
-            cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
-          },
-          transform: function (req, file, cb) {
-            // Apply image transformations using sharp
-            cb(null, sharp().resize(800, 600).jpeg());
-          }
-        }]
+        bucket: "moonlitebucket",
+        key: function (req, file, cb) {
+          cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
+        }
       })
     });
-    
-    app.post('/upload', upload.single('imageFile'), (req, res) => {
-      console.log(req.file.location);
+
+    app.post("/upload", upload.single("imageFile"), (req, res) => {
+      console.log(req.file.location)
       res.json({ message: 'Image uploaded successfully.' });
-    });
+    })
 
     app.get("/all-data", async (req, res) => {
       try {
