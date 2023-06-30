@@ -31,6 +31,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     if(document.getElementById("check2").checked){
         fileName2 = "unavailable.png"
     } else {
+        console.log(fileInput2)
         uploadImage(fileInput2, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName2 = url ? url : "unavailable.png";
@@ -51,6 +52,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     if(document.getElementById("check4").checked){
         fileName4 = "unavailable.png"
     } else {
+        console.log(fileInput4)
         uploadImage(fileInput4, function(url) {
             console.log(url); // Debug: Check the uploaded image URL
             fileName4 = url ? url : "unavailable.png";
@@ -77,8 +79,8 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 function uploadImage(chosenFile) {
     const fileInput = document.getElementById(chosenFile)
-    const file = fileInput.files[0];
     console.log(fileInput)
+    const file = fileInput.files[0];
     console.log(file)
 
     if (file) {
