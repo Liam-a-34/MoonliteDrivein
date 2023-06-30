@@ -260,7 +260,7 @@ mongoose.connect(process.env.MONGO_URI, {
     const upload = multer({ storage });
     
     // Handle the POST request to /upload
-    app.post('/upload', upload.single('image'), (req, res) => {
+    app.post('/upload', upload.single('imageFile'), (req, res) => {
       if (req.file) {
         const { name, ext } = path.parse(req.file.originalname);
     
