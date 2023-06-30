@@ -33,6 +33,7 @@ const Moonlite = mongoose.model("moonliteCollection", moonliteSchema, "moonliteC
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.MONGO_URI, {

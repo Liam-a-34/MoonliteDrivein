@@ -1,7 +1,7 @@
 document.querySelector(".admin-upload-btn").addEventListener("click", function(){
     
     const announceTitle = document.getElementById("title-input").value
-    const announceContent = document.getAnimations("content-input").value
+    const announceContent = document.getElementById("content-input").value
     const fileInput1 = document.getElementById("announce-img-input")
     const fileInput2 = document.getElementById("movie1-input")
     const fileInput3 = document.getElementById("movie2-input")
@@ -23,8 +23,11 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         console.log("fileName1")
     } else {
         fileName1 = file1.name
-        uploadImage(fileInput1)
-        console.log("fileName1")
+        uploadImage(fileInput1, function(url) {
+            console.log(url); // Debug: Check the uploaded image URL
+            fileName1 = url ? url : "unavailable.png";
+            console.log("fileName1:", fileName1);
+          });
     }
 
     if(document.getElementById("check2").checked){
@@ -32,8 +35,11 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         console.log("fileName2")
     } else {
         fileName2 = file2.name
-        uploadImage(fileInput2)
-        console.log("fileName2")
+        uploadImage(fileInput2, function(url) {
+            console.log(url); // Debug: Check the uploaded image URL
+            fileName2 = url ? url : "unavailable.png";
+            console.log("fileName1:", fileName2);
+          });
     }
 
     if(document.getElementById("check3").checked){
@@ -41,8 +47,11 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         console.log("fileName3")
     } else {
         fileName3 = file3.name
-        uploadImage(fileInput3)
-        console.log("fileName3")
+        uploadImage(fileInput3, function(url) {
+            console.log(url); // Debug: Check the uploaded image URL
+            fileName3 = url ? url : "unavailable.png";
+            console.log("fileName1:", fileName3);
+          });
     }
 
     if(document.getElementById("check4").checked){
@@ -50,8 +59,11 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         console.log("fileName4")
     } else {
         fileName4 = file4.name
-        uploadImage(fileInput4)
-        console.log("fileName4")
+        uploadImage(fileInput4, function(url) {
+            console.log(url); // Debug: Check the uploaded image URL
+            fileName4 = url ? url : "unavailable.png";
+            console.log("fileName1:", fileName4);
+          });
     }
 
     if(document.getElementById("check5").checked){
@@ -59,8 +71,11 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         console.log("fileName5")
     } else {
         fileName5 = file5.name
-        uploadImage(fileInput5)
-        console.log("fileName5")
+        uploadImage(fileInput5, function(url) {
+            console.log(url); // Debug: Check the uploaded image URL
+            fileName5 = url ? url : "unavailable.png";
+            console.log("fileName1:", fileName5);
+          });
     }
 
     setTimeout(function(){
@@ -84,7 +99,7 @@ function uploadImage(chosenFile) {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Handle the response from the server
+        callback(data.location);// Handle the response from the server
       })
       .catch(error => {
         console.error('Error:', error);
