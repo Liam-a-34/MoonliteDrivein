@@ -76,7 +76,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 
 function uploadImage(chosenFile) {
-    const fileInput = document.getElementById()
+    const fileInput = document.getElementById(chosenFile)
     const file = fileInput.files[0];
 
     if (file) {
