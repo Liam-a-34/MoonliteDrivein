@@ -12,40 +12,55 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     const file3 = fileInput3.files[0]
     const file4 = fileInput4.files[0]
     const file5 = fileInput5.files[0]
+    var fileName1;
+    var fileName2;
+    var fileName3;
+    var fileName4;
+    var fileName5;
 
     if(document.getElementById("check1").checked){
-        const fileName1 = "unavailable.png"
+        fileName1 = "unavailable.png"
+        console.log("fileName1")
     } else {
-        const fileName1 = file1.name
+        fileName1 = file1.name
         uploadImage(fileInput1)
+        console.log("fileName1")
     }
 
     if(document.getElementById("check2").checked){
-        const fileName2 = "unavailable.png"
+        fileName2 = "unavailable.png"
+        console.log("fileName2")
     } else {
-        const fileName2 = file2.name
+        fileName2 = file2.name
         uploadImage(fileInput2)
+        console.log("fileName2")
     }
 
     if(document.getElementById("check3").checked){
-        const fileName3 = "unavailable.png"
+        fileName3 = "unavailable.png"
+        console.log("fileName3")
     } else {
-        const fileName3 = file3.name
+        fileName3 = file3.name
         uploadImage(fileInput3)
+        console.log("fileName3")
     }
 
     if(document.getElementById("check4").checked){
-        const fileName4 = "unavailable.png"
+        fileName4 = "unavailable.png"
+        console.log("fileName4")
     } else {
-        const fileName4 = file4.name
+        fileName4 = file4.name
         uploadImage(fileInput4)
+        console.log("fileName4")
     }
 
     if(document.getElementById("check5").checked){
-        const fileName5 = "unavailable.png"
+        fileName5 = "unavailable.png"
+        console.log("fileName5")
     } else {
-        const fileName5 = file5.name
+        fileName5 = file5.name
         uploadImage(fileInput5)
+        console.log("fileName5")
     }
 
     setTimeout(function(){
