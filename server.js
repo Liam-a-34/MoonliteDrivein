@@ -253,7 +253,7 @@ mongoose.connect(process.env.MONGO_URI, {
         // Generate a unique filename for the uploaded image
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         const { name, ext } = path.parse(file.originalname);
-        newFileName = name + '-' + uniqueSuffix + ext; // Assign the value to newFileName
+        newFileName = name + ext; // Assign the value to newFileName
         cb(null, newFileName);
       },
     });
