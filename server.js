@@ -267,6 +267,21 @@ mongoose.connect(process.env.MONGO_URI, {
         console.log('Image saved:', req.file.filename);
         console.log('Image name:', name);
         console.log('Image extension:', ext);
+
+        const params = {
+          Bucket: "moonlitebucket",
+          Key: newFileName,
+          Body: destination,
+        }
+  
+              s3.upload(params, function(err, data) {
+                if (err) {
+                  console.log('Error uploading image:', err);
+                } else {
+                  console.log('Image uploaded:', data.Location);
+                };
+  
+            })
     
         // Handle successful image upload
         res.sendStatus(200);
