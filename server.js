@@ -5,7 +5,8 @@ const app = express();
 const path = require("path");
 const AWS = require("aws-sdk");
 const multer = require('multer');
-const multerS3 = require('multer-s3');
+const multerS3 = require('multer-s3-transform');
+const sharp = require("sharp")
 require("dotenv").config()
 
 AWS.config.update({
@@ -248,17 +249,28 @@ mongoose.connect(process.env.MONGO_URI, {
     const upload = multer({
       storage: multerS3({
         s3: s3,
-        bucket: bucketName,
-        key: function (req, file, cb) {
-          cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
-        }
+        bucket: 'moonlitebucket',
+        shouldTransform: function (req, file, cb) {
+          // You can check file types and decide whether to transform or not
+          cb(null, /^image/i.test(file.mimetype));
+        },
+        transforms: [{
+          id: 'original',
+          key: function (req, file, cb) {
+            cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
+          },
+          transform: function (req, file, cb) {
+            // Apply image transformations using sharp
+            cb(null, sharp().resize(800, 600).jpeg());
+          }
+        }]
       })
     });
-
-    app.post("/upload", upload.single("imageFile"), (req, res) => {
-      console.log(req.file.location)
+    
+    app.post('/upload', upload.single('imageFile'), (req, res) => {
+      console.log(req.file.location);
       res.json({ message: 'Image uploaded successfully.' });
-    })
+    });
 
     app.get("/all-data", async (req, res) => {
       try {
