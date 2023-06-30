@@ -273,7 +273,7 @@ mongoose.connect(process.env.MONGO_URI, {
         const params = {
           Bucket: "moonlitebucket",
           Key: newFileName, // Access newFileName defined in the outer scope
-          Body: destination,
+          Body: req.file.path,
         }
   
               s3.upload(params, function(err, data) {
