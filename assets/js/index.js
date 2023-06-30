@@ -1,6 +1,6 @@
 document.querySelector(".admin-upload-btn").addEventListener("click", function(){
     
-    const announceTitle = document.getElementByIdI("title-input").value
+    const announceTitle = document.getElementById("title-input").value
     const announceContent = document.getAnimations("content-input").value
     const fileInput1 = document.getElementById("announce-img-input")
     const fileInput2 = document.getElementById("movie1-input")
