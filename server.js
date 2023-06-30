@@ -251,7 +251,6 @@ mongoose.connect(process.env.MONGO_URI, {
       destination: './assets/images/', // Set the destination folder
       filename: (req, file, cb) => {
         // Generate a unique filename for the uploaded image
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         const { name, ext } = path.parse(file.originalname);
         newFileName = name + ext; // Assign the value to newFileName
         cb(null, newFileName);
@@ -273,7 +272,7 @@ mongoose.connect(process.env.MONGO_URI, {
         const params = {
           Bucket: "moonlitebucket",
           Key: newFileName, // Access newFileName defined in the outer scope
-          Body: req.file.path,
+          Body: "./assets/images/",
         }
   
               s3.upload(params, function(err, data) {
