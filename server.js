@@ -247,7 +247,7 @@ mongoose.connect(process.env.MONGO_URI, {
     const upload = multer({
       storage: multerS3({
         s3: s3,
-        bucket: 'YOUR_S3_BUCKET_NAME',
+        bucket: bucketName,
         key: function (req, file, cb) {
           cb(null, Date.now().toString()); // Set the key of the uploaded file in S3
         }
