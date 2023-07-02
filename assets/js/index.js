@@ -57,9 +57,9 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         uploadImage("movie4-input");
     }
 
-    setTimeout(function(){
-        window.location.assign(`/homeUpdate/${fileName3}/${fileName2}/${fileName4}/${fileName5}/${fileName1}/${announceTitle}/${announceContent}`)
-    })
+    // setTimeout(function(){
+    //     window.location.assign(`/homeUpdate/${fileName3}/${fileName2}/${fileName4}/${fileName5}/${fileName1}/${announceTitle}/${announceContent}`)
+    // })
 
 })
 
@@ -67,6 +67,8 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 function uploadImage(chosenFileId) {
     const file = document.getElementById(chosenFileId);
     var fileName = file.name;
+    console.log(fileName)
+    console.log(file)
     var params = {
       Bucket: 'moonlitebucket',
       Key: fileName,
