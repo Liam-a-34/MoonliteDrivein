@@ -65,22 +65,29 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 
 function uploadImage(chosenFileId) {
-    const file = document.getElementById(chosenFileId);
-    var fileName = file.name;
-    console.log(fileName)
-    console.log(file)
-    var params = {
+  const fileInput = document.getElementById(chosenFileId);
+  const file = fileInput.files[0];
+  const fileName = file.name;
+
+  const reader = new FileReader();
+
+  reader.onloadend = function () {
+    const fileData = new Uint8Array(reader.result);
+    const params = {
       Bucket: 'moonlitebucket',
       Key: fileName,
-      Body: file,
+      Body: fileData,
       ACL: 'public-read' // Optional: Set the ACL permissions for the uploaded file
     };
-    
-    s3.upload(params, function(err, data) {
+
+    s3.upload(params, function (err, data) {
       if (err) {
         console.log('Error uploading file:', err);
       } else {
         console.log('File uploaded successfully.', data);
       }
     });
+  };
+
+  reader.readAsArrayBuffer(file);
   }
