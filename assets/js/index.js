@@ -1,3 +1,9 @@
+var s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_KEY,
+  secretAccessKey: process.env.AWS_SECRET,
+  region: 'us-east-2'
+});
+
 document.querySelector(".admin-upload-btn").addEventListener("click", function(){
     
     const announceTitle = document.getElementById("title-input").value
@@ -22,53 +28,33 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
         fileName1 = "unavailable.png"
     } else {
         fileName1 = file1.name
-        uploadImage("announce-img-input", function(url) {
-            console.log(url); // Debug: Check the uploaded image URL
-            fileName1 = url ? url : "unavailable.png";
-            console.log("fileName1:", fileName1);
-          });
+        uploadImage("announce-img-input");
     }
     if(document.getElementById("check2").checked){
         fileName2 = "unavailable.png"
     } else {
         fileName2 = file2.name
-        uploadImage("movie1-input", function(url) {
-            console.log(url); // Debug: Check the uploaded image URL
-            fileName2 = url ? url : "unavailable.png";
-            console.log("fileName2:", fileName2);
-          });
+        uploadImage("movie1-input");
     }
     if(document.getElementById("check3").checked){
         fileName3 = "unavailable.png"
     } else {
         fileName3 = file3.name
-        uploadImage("movie2-input", function(url) {
-            console.log(url); // Debug: Check the uploaded image URL
-            fileName3 = url ? url : "unavailable.png";
-            console.log("fileName3:", fileName3);
-          });
+        uploadImage("movie2-input");
     }
 
     if(document.getElementById("check4").checked){
         fileName4 = "unavailable.png"
     } else {
         fileName4 = file4.name
-        uploadImage("movie3-input", function(url) {
-            console.log(url); // Debug: Check the uploaded image URL
-            fileName4 = url ? url : "unavailable.png";
-            console.log("fileName4:", fileName4);
-          });
+        uploadImage("movie3-input");
     }
 
     if(document.getElementById("check5").checked){
         fileName5 = "unavailable.png"
     } else {
         fileName5 = file5.name
-        uploadImage("movie4-input", function(url) {
-            console.log(url); // Debug: Check the uploaded image URL
-            fileName5 = url ? url : "unavailable.png";
-            console.log("fileName5:", fileName5);
-          });
+        uploadImage("movie4-input");
     }
 
     setTimeout(function(){
@@ -79,26 +65,20 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
 
 
 function uploadImage(chosenFileId) {
-    const fileInput = document.getElementById(chosenFileId);
-    console.log(fileInput);
-    const file = fileInput.files[0];
-    console.log(file);
-
-    if (file) {
-      const formData = new FormData();
-      formData.append('imageFile', file);
-      console.log(formData)
-
-      fetch('/upload', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        callback(data.location);// Handle the response from the server
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-    }
+    const file = document.getElementById(chosenFileId);
+    var fileName = file.name;
+    var params = {
+      Bucket: 'moonlitebucket',
+      Key: fileName,
+      Body: file,
+      ACL: 'public-read' // Optional: Set the ACL permissions for the uploaded file
+    };
+    
+    s3.upload(params, function(err, data) {
+      if (err) {
+        console.log('Error uploading file:', err);
+      } else {
+        console.log('File uploaded successfully.', data);
+      }
+    });
   }
