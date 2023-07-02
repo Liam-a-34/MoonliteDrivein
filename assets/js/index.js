@@ -58,8 +58,12 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     }
 
     setTimeout(function(){
-        window.location.assign(`/homeUpdate/${fileName3}/${fileName2}/${fileName4}/${fileName5}/${fileName1}/${announceTitle}/${announceContent}`)
+        window.location.href = `/homeUpdate/${fileName3}/${fileName2}/${fileName4}/${fileName5}/${fileName1}/${announceTitle}/${announceContent}`
     })
+
+    setTimeout(function(){
+      window.location.assign("/")
+    },3000)
 
 })
 
