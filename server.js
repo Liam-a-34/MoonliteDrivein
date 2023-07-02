@@ -245,53 +245,53 @@ mongoose.connect(process.env.MONGO_URI, {
 
     });
 
-    let newFileName;
+    // let newFileName;
 
-    const storage = multer.diskStorage({
-      destination: './assets/images/', // Set the destination folder
-      filename: (req, file, cb) => {
-        // Generate a unique filename for the uploaded image
-        const { name, ext } = path.parse(file.originalname);
-        newFileName = name + ext; // Assign the value to newFileName
-        cb(null, newFileName);
-      },
-    });
+    // const storage = multer.diskStorage({
+    //   destination: './assets/images/', // Set the destination folder
+    //   filename: (req, file, cb) => {
+    //     // Generate a unique filename for the uploaded image
+    //     const { name, ext } = path.parse(file.originalname);
+    //     newFileName = name + ext; // Assign the value to newFileName
+    //     cb(null, newFileName);
+    //   },
+    // });
     
-    // Create multer instance
-    const upload = multer({ storage: storage });
+    // // Create multer instance
+    // const upload = multer({ storage: storage });
     
-    // Handle the POST request to /upload
-    app.post('/upload', upload.single('imageFile'), (req, res) => {
-      if (req.file) {
-        const { name, ext } = path.parse(req.file.originalname);
+    // // Handle the POST request to /upload
+    // app.post('/upload', upload.single('imageFile'), (req, res) => {
+    //   if (req.file) {
+    //     const { name, ext } = path.parse(req.file.originalname);
     
-        console.log('Image saved:', req.file.filename);
-        console.log('Image name:', name);
-        console.log('Image extension:', ext);
+    //     console.log('Image saved:', req.file.filename);
+    //     console.log('Image name:', name);
+    //     console.log('Image extension:', ext);
     
-        const params = {
-          Bucket: "moonlitebucket",
-          Key: newFileName, // Access newFileName defined in the outer scope
-          Body: "./assets/images/",
-        }
+    //     const params = {
+    //       Bucket: "moonlitebucket",
+    //       Key: newFileName, // Access newFileName defined in the outer scope
+    //       Body: "./assets/images/",
+    //     }
   
-              s3.upload(params, function(err, data) {
-                if (err) {
-                  console.log('Error uploading image:', err);
-                } else {
-                  console.log('Image uploaded:', data.Location);
-                };
+    //           s3.upload(params, function(err, data) {
+    //             if (err) {
+    //               console.log('Error uploading image:', err);
+    //             } else {
+    //               console.log('Image uploaded:', data.Location);
+    //             };
   
-            })
+    //         })
     
-        // Handle successful image upload
-        res.sendStatus(200);
-      } else {
-        console.log('No image file received.');
-        // Handle failure
-        res.sendStatus(400);
-      }
-    });
+    //     // Handle successful image upload
+    //     res.sendStatus(200);
+    //   } else {
+    //     console.log('No image file received.');
+    //     // Handle failure
+    //     res.sendStatus(400);
+    //   }
+    // });
 
     app.get("/all-data", async (req, res) => {
       try {

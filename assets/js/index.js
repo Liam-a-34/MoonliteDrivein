@@ -1,6 +1,6 @@
 var s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_KEY,
-  secretAccessKey: process.env.AWS_SECRET,
+  accessKeyId: "AKIAQPNAVKZEWCVSDIH6",
+  secretAccessKey: "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",
   region: 'us-east-2'
 });
 
