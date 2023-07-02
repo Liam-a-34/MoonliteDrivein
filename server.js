@@ -6,6 +6,7 @@ const path = require("path");
 const AWS = require("aws-sdk");
 const multer = require('multer');
 const multerS3 = require('multer-s3');
+var cors = require('cors')
 require("dotenv").config()
 
 AWS.config.update({
@@ -31,14 +32,11 @@ const moonliteSchema = new mongoose.Schema({
 // Register the "moonliteCollection" model with Mongoose
 const Moonlite = mongoose.model("moonliteCollection", moonliteSchema, "moonliteCollection");
 
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.MONGO_URI, {
