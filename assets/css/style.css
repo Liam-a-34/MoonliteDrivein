@@ -421,7 +421,6 @@ main{
     height: 250px;
     position: relative;
     margin: auto;
-    margin-left: 50px;
 }
 
 .anc-text-div{
@@ -1108,6 +1107,12 @@ footer{
         font-size: 10px;
         margin-top: 10px;
     }
+
+    .food-div{
+        width: 80%;
+    }
+
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -1197,6 +1202,25 @@ footer{
     #slide4:hover{
         transform: scale(1.05);
         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+}
+
+@media screen and (max-width: 900px){
+
+    .food-div{
+        max-height: 125px;
+    }
+
+    .con-extend{
+        max-height: 1500px;
+    }
+
+    .food-div h2{
+        font-size: 40px;
+    }
+
+    .food-div img{
+        height: 125px;
     }
 }
 
@@ -1332,5 +1356,172 @@ footer{
 
     .location-box-position{
         left: 0;
+    }
+
+    .food-div{
+        width: 95%;
+        max-height: 100px;
+    }
+
+    .food-div h2{
+        font-size: 30px;
+    }
+
+    .food-div img{
+        max-height: 100px;
+    }
+
+    .con-extend{
+        max-height: 1500px;
+    }
+
+    .food-item p{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 700px){
+
+    .slide-div{
+        width: 90%;
+        margin: 15px auto;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .movie-slide{
+        position: relative;
+        width: 100%;
+        margin: 15px 0;
+        height: calc((100vw - 10vw) * 1.4);
+    }
+
+}
+
+@media screen and (max-width: 600px){
+
+    .home-bg-image{
+        height: 50vh
+    }
+
+    .splash-text{
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .splash-animation{
+        border: none;
+    }
+
+   .splash-text:hover .splash-animation{
+        border: none
+    }
+
+    .splash-text h2{
+        font-size: 30px;
+        margin-bottom: 15px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .splash-text h4{
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .bg-contact-bar{
+        margin-top: 25px;
+        flex-direction: column;
+        position: relative;
+        height: fit-content
+    }
+
+    .landing-now-showing h1{
+        font-size: 40px;
+    }
+
+    .landing-now-showing h1::after{
+        width: 250px;
+    }
+
+    .announcements h1{
+        font-size: 40px;
+    }
+
+    .announcements h1::after{
+        width: 250px;
+    }
+
+    .anc-cont{
+        flex-direction: column;
+        height: fit-content;
+        margin-top: 50px;
+    }
+
+    .anc-cont img{
+        align-self: center;
+        margin-top: 15px
+    }
+
+    .anc-text-div{
+        text-align: center;
+        height: max-content;
+        padding: 15px 0;
+    }
+
+    .footer-div1 h3{
+        font-size: 20px;
+    }
+
+    .footer-div1 h3 img{
+        height: 25px;
+    }
+
+    .footer-div1 p{
+        font-size: 15px;
+    }
+
+    .food-item{
+        flex-direction: column;
+        align-items: center;
+        height: 75px;
+        justify-content: center;
+        margin: 5px auto
+    }
+}
+
+@media screen and (max-width: 500px){
+
+    .con-main h1{
+        font-size: 40px;
+    }
+
+    .pass{
+        font-size: 15px;
+    }
+
+    .con-nav{
+        font-size: 10px;;
+    }
+
+    .con-nav a {
+        font-size: 10px;
+    }
+
+    .food-div{
+        max-height: 75px;
+    }
+
+    .con-extend{
+        max-height: 1500px;
+    }
+
+    .food-div h2{
+        font-size: 20px;
+        text-overflow: ellipsis;
+    }
+
+    .food-div img{
+        height: 75px;
     }
 }
