@@ -1242,7 +1242,7 @@ footer{
         font-size: 15px;
         max-width: 90%;
         margin: auto;
-        line-height: 30px;
+        line-height: 20px;
     }
 }
 
@@ -1523,6 +1523,8 @@ footer{
     .rules li{
         font-size: 13px;
         max-width: 80%;
+        margin-top: 10px;
+        margin-bottom: 5px
     }
 
     .admin-header{
