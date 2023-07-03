@@ -208,7 +208,7 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/js/index.js'));
     });
 
-    app.get('/update', async (req, res) => {
+    app.get('/assets/js/update', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/js/update.js'));
     });
 
