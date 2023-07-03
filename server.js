@@ -212,6 +212,10 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/js/update.js'));
     });
 
+    app.get('./assets/images/icons8-menu-100.png', async (req, res) => {
+      res.sendFile(path.join(__dirname, './assets/images/icons8-menu-100.png'));
+    });
+
     // app.get("/favicon.ico", async (req, res) => {
     //   res.sendFile(path.join(__dirname, '/favicon.ico'));
     // })
