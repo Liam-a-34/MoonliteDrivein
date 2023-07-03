@@ -117,11 +117,11 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/pages/admin.html'));
     });
 
-    app.get('/assets/pages/concessions.html', async (req, res) => {
+    app.get('/concessions', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/concessions.html'));
     });
 
-    app.get('/assets/pages/info.html', async (req, res) => {
+    app.get('/info', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/pages/info.html'));
     });
 
@@ -208,7 +208,7 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/js/index.js'));
     });
 
-    app.get('/assets/js/update.js', async (req, res) => {
+    app.get('/update', async (req, res) => {
       res.sendFile(path.join(__dirname, '/assets/js/update.js'));
     });
 
@@ -216,7 +216,7 @@ mongoose.connect(process.env.MONGO_URI, {
     //   res.sendFile(path.join(__dirname, '/favicon.ico'));
     // })
 
-    app.get('/assets/pages/showing.html', async (req, res) => {
+    app.get('/showing', async (req, res) => {
 
       try {
         const data = await Moonlite.find({});
