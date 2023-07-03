@@ -1407,8 +1407,13 @@ footer{
     .slide-div{
         width: 90%;
         margin: 15px auto;
+        flex-direction: column;
         flex-wrap: wrap;
         height: auto;
+    }
+
+    #slide2{
+        order: -1
     }
 
     .movie-slide{
