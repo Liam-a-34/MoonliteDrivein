@@ -1064,6 +1064,15 @@ footer{
     }
 }
 
+@media  screen and (max-width: 1300px) {
+    
+    .info-cont{
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
 @media screen and (max-width: 1200px){
     .splash-text{
         width: 90%;
@@ -1221,6 +1230,19 @@ footer{
 
     .food-div img{
         height: 125px;
+    }
+
+    .rules{
+        width: 90%;
+        padding: 15px 0;
+        margin: auto;
+    }
+
+    .rules li{
+        font-size: 15px;
+        max-width: 90%;
+        margin: auto;
+        line-height: 30px;
     }
 }
 
@@ -1488,6 +1510,44 @@ footer{
         justify-content: center;
         margin: 5px auto
     }
+
+    .rules{
+        margin: auto;
+    }
+
+    .rules li{
+        font-size: 13px;
+        max-width: 80%;
+    }
+
+    .admin-header{
+        font-size: 40px;
+    }
+
+    .admin-cont{
+        width: 100%;
+    }
+
+    .admin-cont h3{
+        font-size: 25px;
+    }
+
+    .admin-cont p{
+        font-size: 12px;
+        max-width: 80%;
+    }
+
+    .admin-text-inputs{
+        width: 90%;
+    }
+
+    .admin-image-inputs{
+        width: 90%;
+    }
+
+    .admin-image-inputs label{
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 500px){
@@ -1518,10 +1578,64 @@ footer{
 
     .food-div h2{
         font-size: 20px;
-        text-overflow: ellipsis;
     }
 
     .food-div img{
         height: 75px;
+    }
+
+    .login-div{
+        width: 250px;
+    }
+
+    .login-div img{
+        width: 250px;
+    }
+
+    .login-div h2{
+        font-size: 40px;
+    }
+
+    .login-inputs input{
+        height: 40px;
+        font-size: 15px;
+    }
+
+    #login-button{
+        height: 30px;
+        width: 200px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .info{
+        width: 280px
+    }
+
+    .info img{
+        width: 275px;
+        position: relative;
+        left: 3px;
+    }
+
+    .info-board{
+        width: 250px;
+    }
+
+    .info-board h4{
+        font-size: 20px;
+    }
+
+    .info-board h5{
+        font-size: 18px;
+    }
+
+    .extra-info{
+        width: 250px;
+    }
+
+    .extra-info h2{
+        font-size: 25px;
     }
 }
