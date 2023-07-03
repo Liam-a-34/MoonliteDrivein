@@ -963,7 +963,16 @@ main{
     bottom: 5px;
 }
 
+.update-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.update-body h2{
+    font-size: 40px;
+    font-family: "Montserrat", sans-serif;
+}
 
 
 

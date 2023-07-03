@@ -208,6 +208,10 @@ mongoose.connect(process.env.MONGO_URI, {
       res.sendFile(path.join(__dirname, '/assets/js/index.js'));
     });
 
+    app.get('/assets/js/update.js', async (req, res) => {
+      res.sendFile(path.join(__dirname, '/assets/js/update.js'));
+    });
+
     // app.get("/favicon.ico", async (req, res) => {
     //   res.sendFile(path.join(__dirname, '/favicon.ico'));
     // })
@@ -342,11 +346,12 @@ mongoose.connect(process.env.MONGO_URI, {
           }
 
           console.log("Document updated successfully:", updatedDocument);
-          res.status(200).send("Document updated successfully");
         } catch (err) {
           console.error("Failed to update document:", err);
           res.status(500).send("Internal Server Error");
         }
+
+        res.sendFile(path.join(__dirname, '/assets/pages/homeUpdate.html'));
   });
 
     app.listen(process.env.PORT || 3000, () => {
