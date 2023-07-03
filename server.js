@@ -351,7 +351,7 @@ mongoose.connect(process.env.MONGO_URI, {
           res.status(500).send("Internal Server Error");
         }
 
-        res.sendFile(path.join(__dirname, '/assets/pages/homeUpdate.html'));
+        res.sendFile(path.join(__dirname, './assets/pages/homeUpdate.html'));
   });
 
     app.listen(process.env.PORT || 3000, () => {
