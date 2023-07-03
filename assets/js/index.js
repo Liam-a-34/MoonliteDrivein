@@ -25,7 +25,7 @@ document.querySelector(".admin-upload-btn").addEventListener("click", function()
     var fileName5;
 
     if(document.getElementById("check1").checked){
-        fileName1 = "unavailable.png"
+        fileName1 = "empty.png"
     } else {
         fileName1 = file1.name
         uploadImage("announce-img-input");
