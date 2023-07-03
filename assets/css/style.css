@@ -846,12 +846,9 @@ main{
     position: relative;
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
 }
 
 .admin-page{
-    width: 100%;
-    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -863,6 +860,7 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .admin-cont h3{
@@ -885,8 +883,6 @@ main{
     font-size: 60px;
     color: rgb(186, 73, 73);
     margin-top: 15px;
-    position: absolute;
-    top: 15px;
 }
 
 .admin-text-inputs{
@@ -920,7 +916,7 @@ main{
 
 .admin-image-inputs div {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
     padding-left: 10px;
     position: relative;
@@ -1030,6 +1026,10 @@ footer{
     width: 30px;
     position: relative;
     top: 8px
+}
+
+#admin-footer{
+    position: relative;
 }
 
 @media screen and (max-width: 1400px){
@@ -1545,8 +1545,16 @@ footer{
         width: 90%;
     }
 
+    .admin-image-inputs div{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
     .admin-image-inputs label{
         font-size: 15px;
+        margin: 0 5px;
+        text-align: center;
     }
 }
 
@@ -1606,6 +1614,20 @@ footer{
         width: 200px;
         font-size: 20px;
     }
+
+    .admin-body{
+        height: 130vh;
+        overflow: scroll;
+    }
+
+    .admin-page{
+        overflow: scroll;
+     }  
+
+    .admin-image-inputs div{
+        padding-left: 0;
+        left: 0;
+    }
 }
 
 @media screen and (max-width: 400px){
@@ -1637,5 +1659,30 @@ footer{
 
     .extra-info h2{
         font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    .mobile-header-top-div img:first-child{
+        position: absolute;
+        left: 30%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .footer-div1 h3{
+        font-size: 15px;
+    }
+
+    .footer-div1 h3 img{
+        height: 20px
+    }
+
+    .footer-div1 p{
+        font-size: 10px;
+    }
+
+    .map-hamburger{
+        right: 15px
     }
 }
