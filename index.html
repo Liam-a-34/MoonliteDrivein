@@ -25,6 +25,27 @@
             <a href="/concessions">Concessions</a>
             <a href="/info">Info</a>
         </div>
+
+        <div class="mobile-header">
+            <div class="mobile-header-top-div">
+                <img src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1687554998/moonlite-logo-cropped_noncq8.png">
+                <img class="header-hamburger" src="https://res.cloudinary.com/dkmdfgbpz/image/upload/v1688404287/icons8-menu-100_zo2t1o.png" alt="Location Menu Toggle"/>
+            </div>
+            <ul class="mobile-nav">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/showing">Now Showing</a>
+                </li>
+                <li>
+                    <a href="/concessions">Concessions</a>
+                </li>
+                <li>
+                    <a href="/info">Info</a>
+                </li>
+            </ul>
+        </div>
         
     </header>
 
@@ -157,12 +178,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(".hamburger").on("click", function() {
-      $(".mobile-header-dropdown").toggleClass("mobile-drop-height")
-    })
 
     $(".map-hamburger").click(function() {
       $(".location-box").toggleClass("location-box-position")
+    })
+
+    $(".header-hamburger").click(function(){
+        $(".mobile-nav").toggleClass("mobile-scale")
     })
     </script>
 
