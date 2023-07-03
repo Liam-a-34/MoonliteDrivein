@@ -91,7 +91,7 @@
         <div class="announcements">
             <h1>Announcements</h1>
             <div class="anc-cont">
-                <img id="announceImg" src=""/>
+                <img id="announceImg" src="./assets/images/moonlite-logo-cropped.png"/>
                 <div class="anc-text-div">
                     <h2 id="announceHead" class="anc-header">Coming Soon</h2>
                     <p id="announceText" class="anc-text">September 2-4 Save the Date! Its our Anniversary Sept 2-4! what does that mean? $10 Car load weekend! Hope too see you there! Here is the movies will be showing and making a come back!</p>
@@ -156,6 +156,15 @@
 </body>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(".hamburger").on("click", function() {
+      $(".mobile-header-dropdown").toggleClass("mobile-drop-height")
+    })
+
+    $(".map-hamburger").click(function() {
+      $(".location-box").toggleClass("location-box-position")
+    })
+    </script>
 
     <!-- REPLACE_WITH_JSON -->
 </html>
