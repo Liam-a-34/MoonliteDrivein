@@ -419,12 +419,14 @@ main{
 
 .anc-cont img{
     height: 250px;
-    position: relative;
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto
 }
 
 .anc-text-div{
     position: relative;
+    width: fit-content;
+    padding: 0 20px;
     left: 100px;
     margin-right: 200px;
 }
