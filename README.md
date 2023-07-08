@@ -15,4 +15,5 @@ See LICENSE in repository.
 ## Contact
 
 ## Deployed Link
-[https://liam-a-34](https://themoonlite-6318c8c2d96f.herokuapp.com/)https://themoonlite-6318c8c2d96f.herokuapp.com/
+
+https://themoonlite-6318c8c2d96f.herokuapp.com/
