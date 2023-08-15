@@ -14,6 +14,8 @@ See LICENSE in repository.
 
 ## Contact
 
+Feel free to message me on github
+
 ## Deployed Link
 
 https://themoonlite-6318c8c2d96f.herokuapp.com/
